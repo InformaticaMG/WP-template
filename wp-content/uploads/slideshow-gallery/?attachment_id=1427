@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">                   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG-PERU-09 | Marea Granate</title>     
+    <link rel="profile" href="http://gmpg.org/xfn/11">           
+    <link rel="pingback" href="http://mareagranate.org/xmlrpc.php">
+    
+        
+    
+    
+    
+    
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <script src="http://mareagranate.org/wp-content/themes/musica/js/PIE_IE678.js"></script>
+    <![endif]-->
+    
+    <link rel="dns-prefetch" href="//connect.facebook.net" />
+<link rel="alternate" type="application/rss+xml" title="Marea Granate &raquo; Feed" href="http://mareagranate.org/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="Marea Granate &raquo; RSS de los comentarios" href="http://mareagranate.org/?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="Marea Granate &raquo; MG-PERU-09 RSS de los comentarios" href="http://mareagranate.org/?feed=rss2&#038;p=1427" />
+<link rel='stylesheet' id='sociablecss-css'  href='http://mareagranate.org/wp-content/plugins/sociable/css/sociable.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://mareagranate.org/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.8' type='text/css' media='all' />
+<link rel='stylesheet' id='gce_styles-css'  href='http://mareagranate.org/wp-content/plugins/google-calendar-events/css/gce-style.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-biographia-bio-css'  href='http://mareagranate.org/wp-content/plugins/wp-biographia/css/wp-biographia.min.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-bootstrap-css'  href='http://mareagranate.org/wp-content/themes/musica/css/bootstrap.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-icoMoon-css'  href='http://mareagranate.org/wp-content/themes/musica/css/icoMoon.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-superfish-css'  href='http://mareagranate.org/wp-content/themes/musica/css/superfish.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-awesome-weather-css'  href='http://mareagranate.org/wp-content/themes/musica/css/awesome-weather.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-flexlisder-css'  href='http://mareagranate.org/wp-content/themes/musica/css/flexslider.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-prettyPhoto-css'  href='http://mareagranate.org/wp-content/themes/musica/css/prettyPhoto.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-style-css'  href='http://mareagranate.org/wp-content/themes/musica/style.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-extra-style-css'  href='http://mareagranate.org/wp-content/themes/musica/css/extra.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-bootstrap-responsive-css'  href='http://mareagranate.org/wp-content/themes/musica/css/bootstrap-responsive.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='kopa-responsive-css'  href='http://mareagranate.org/wp-content/themes/musica/css/responsive.css?ver=3.8.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cpsh-shortcodes-css'  href='http://mareagranate.org/wp-content/plugins/column-shortcodes/assets/css/shortcodes.css?ver=0.6.4' type='text/css' media='all' />
+<link rel='stylesheet' id='colorbox-css'  href='http://mareagranate.org/wp-content/plugins/slideshow-gallery/css/colorbox.css?ver=1.3.19' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kopa_front_variable = {"ajax":{"url":"http:\/\/mareagranate.org\/wp-admin\/admin-ajax.php"},"template":{"post_id":1427}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://mareagranate.org/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/anti-spam/js/anti-spam.js?ver=2.1'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/sociable/js/sociable.js?ver=3.8.3'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/sociable/js/vuible.js?ver=3.8.3'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/sociable/js/addtofavorites.js?ver=3.8.3'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/google-calendar-events/js/jquery-qtip.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var GoogleCalendarEvents = {"ajaxurl":"http:\/\/mareagranate.org\/wp-admin\/admin-ajax.php","loading":"Cargando..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/google-calendar-events/js/gce-script.js'></script>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js?ver=3.8.3'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/google-fonts.js?ver=3.8.3'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-includes/js/comment-reply.min.js?ver=3.8.3'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/slideshow-gallery/js/gallery.js?ver=1.0'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/slideshow-gallery/js/colorbox.js?ver=1.3.19'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://mareagranate.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://mareagranate.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.8.3" />
+<link rel='canonical' href='http://mareagranate.org/?attachment_id=1427' />
+<link rel='shortlink' href='http://mareagranate.org/?p=1427' />
+<script type='text/javascript'>var base_url_sociable = 'http://mareagranate.org/wp-content/plugins/sociable/'</script><script type='text/javascript' src='http://apis.google.com/js/plusone.js'></script><style>
+
+        .pagination ul > li > span.current,
+        .pagination ul > li > a:hover,
+        .pagination .page-numbers li a.prev:hover,
+        .pagination .page-numbers li a.next:hover,
+        #comments-form #submit-comment,
+        #contact-form #submit-contact,
+        .list-carousel .carousel-pager a.selected {
+            background: #a70240;
+        }
+
+        .navy-button,
+        .border-button:hover,
+        .kp-dropcap,
+        .kp-dropcap.color,
+        #header-bottom,
+        #toggle-view-menu > li,
+        #main-content .widget .widget-title,
+        #main-content .sidebar .widget .widget-title,
+        .newsletter-form .submit,
+        #back-top a,
+        .kopa-comment-pagination a:hover,
+        .kopa-comment-pagination .current,
+        .home-slider .flex-control-paging li a.flex-active,
+        .kp-post-slider .flex-control-paging li a.flex-active,
+        #toggle-view-menu li:hover,
+        #toggle-view-menu span,
+        #toggle-view-menu .menu-panel {
+            background-color: #a70240;
+        }
+
+        .navy-button,
+        .border-button:hover,
+        .pagination ul > li > span.current,
+        .pagination ul > li > a:hover,
+        .pagination .page-numbers li a.prev:hover,
+        .pagination .page-numbers li a.next:hover,
+        .newsletter-form .submit,
+        .kopa-comment-pagination a:hover,
+        .kopa-comment-pagination .current,
+        #comments-form #comment_name:focus,
+        #comments-form #comment_email:focus,
+        #comments-form #comment_url:focus,
+        #comments-form #comment_message:focus,
+        #contact-form #contact_name:focus,
+        #contact-form #contact_email:focus,
+        #contact-form #contact_url:focus,
+        #contact-form #contact_message:focus,
+        #comments-form #submit-comment,
+        #contact-form #submit-contact,
+        .kp-featured-news-slider .flex-control-thumbs li img.flex-active,
+        textarea:focus, 
+        input[type='text']:focus {
+            border-color: #a70240;
+        }
+
+        .list-container-3 ul li.active a, 
+        .list-container-3 ul li:hover a {
+            border-top-color: #a70240;
+        }
+
+        #main-menu > li > a {
+            border-right-color: #a70240;
+        }
+
+        #main-menu > li:first-child > a {
+            border-left-color: #a70240;
+        }
+
+        h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, a:hover,
+        .home-slider .flex-caption h3 a:hover,
+        .entry-categories a,
+        .kopa-audio-widget .older-post li a:hover,
+        .widget_archive li a:hover,
+        .widget_rss li a:hover,
+        .widget_recent_comments li a:hover,
+        .widget_recent_entries li a:hover,
+        .widget_categories li a:hover,
+        .breadcrumb a:hover,
+        .entry-box footer a:hover,
+        .about-author .author-content p a:hover,
+        .about-author .author-content .social-link li a:hover,
+        .about-author .author-name:hover,
+        #footer-menu li a:hover,
+        .kp-video-widget ul li .entry-title a:hover,
+        .kopa-article-list-widget .entry-title a:hover,
+        #bottom-sidebar .widget ul li a:hover,
+        .entry-categories a:hover,
+        .entry-comments a:hover,
+        .entry-author a:hover,
+        #toggle-view li h3:hover,
+        .socials-link li a:hover,
+        .search-form .search-submit,
+        .more-link,
+        .list-container-1 ul li.active a, 
+        .list-container-1 ul li:hover a,
+        .kopa-entry-list-widget .tab-container-1 #tab-1-4 ul li .video-icon,
+        .tweetList li:before,
+        .tweetList a,
+        .timestamp,
+        .kopa-rating li a,
+        .widget_tag_cloud a:hover,
+        .entry-box .social-link li a:hover,
+        .tag-box,
+        .tag-box a,
+        .wrap-page-links,
+        .comments-list li .comment-button .comment-edit-link,
+        .comments-list li .comment-button .comment-reply-link:hover,
+        #comments-form .required span,
+        #contact-form .required span,
+        #comments-form #submit-comment:hover,
+        #contact-form #submit-contact:hover,
+        #comments-form .error,
+        #contact-form .error,
+        .tab-container-3 ul li,
+        .error-404 .left-col p,
+        .error-404 .right-col h1,
+        .error-404 .right-col a,
+        .kopa-entry-list-widget .video-icon,
+        .widget_categories li a:hover,
+        .widget_pages li a:hover,
+        .widget_meta li a:hover,
+        .widget_tag_cloud a:hover,
+        .widget_nav_menu li a:hover,
+        .widget_calendar a:hover,
+        #kopa-logo-text a,
+        #bottom-logo a {
+            color: #a70240;
+        }
+
+        .newsletter-form .submit:hover {
+            color: white;
+        }
+        
+        </style><style>
+        body {
+            color: #383332;
+        }
+
+        #main-content .sidebar .widget .widget-title
+        {
+            color: #ffffff;
+        }
+
+        #main-content .widget .widget-title,
+        #bottom-sidebar .widget-title  {
+            color: #ffffff;
+        }
+
+        h1,
+        .elements-box h1 {
+            color: #666666;
+        }
+        h2, 
+        .elements-box h2 {
+            color: #666666;
+        }
+        h3,
+        .elements-box h3 {
+            color: #666666;
+        }
+        h4,
+        .elements-box h4 {
+            color: #666666;
+        }
+        h5,
+        .elements-box h5 {
+            color: #666666;
+        }
+        h6,
+        .elements-box h6 {
+            color: #666666;
+        }
+        </style><style>
+                    body,
+                    .tab-container-3 ul li a,
+                    #copyright{
+                       font-size:14px;
+                   }
+                   </style><style>
+        .flex-control-paging li a,
+        .kp-dropcap.color {
+            behavior: url(http://mareagranate.org/wp-content/themes/musica/js/PIE.htc);
+        }
+    </style><meta property="og:site_name" content="Marea Granate" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:url" content="http://mareagranate.org/?attachment_id=1427" />
+<meta property="og:title" content="MG-PERU-09" />
+</head>
+<body class="attachment single single-attachment postid-1427 attachmentid-1427 attachment-jpeg sub-page tribe-theme-musica">
+<header id="page-header">
+    <div id="header-top">
+        <div class="wrapper clearfix">
+            <div id="logo-image">
+                            <a href="http://mareagranate.org"><img src="http://mareagranate.org/wp-content/uploads/2014/03/logomg240.png" alt="Marea Granate"></a>
+                        </div>
+            <div id="header-left" class="clearfix">
+                <ul class="socials-link clearfix">
+                                            <li><a class="kp-twitter-icon" href="https://twitter.com/MareaGranate" data-icon="&#xe1c9;" target="_self"></a></li>
+                    
+                                            <li><a class="kp-facebook-icon" href="https://www.facebook.com/mareagranateinternacional?fref=ts" data-icon="&#xe1c5;" target="_self"></a></li>
+                    
+                    
+                    
+                    
+                                            <li>
+                            <a class="kp-rss-icon" href="http://mareagranate.org/?feed=rss2" data-icon="&#xe1cc;" target="_self"></a>
+                        </li>
+                                    </ul>
+                <!-- socials-link -->
+
+                                    
+            </div>
+            <!-- header-left -->
+        </div>
+        <!-- wrapper -->
+    </div>
+    <!-- header-top -->
+    <div id="header-bottom">
+        <div class="wrapper clearfix">
+            <nav id="main-nav">
+            <ul id="main-menu" class="menu clearfix"><li class="menu-home-item"><a data-icon="&#xe1c2;" href="http://mareagranate.org"></a></li><li id="menu-item-1219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1219"><a href="http://mareagranate.org/?page_id=2">Manifiesto</a></li>
+<li id="menu-item-1213" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1213"><a href="http://mareagranate.org/?cat=148">Nodos</a>
+<ul class="sub-menu">
+	<li id="menu-item-1215" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1215"><a href="http://mareagranate.org/?cat=148">América</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1291" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1291"><a href="http://mareagranate.org/?author=12">Centroamérica</a></li>
+		<li id="menu-item-54" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-54"><a href="http://mareagranate.org/?cat=16">Montreal</a></li>
+		<li id="menu-item-31" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-31"><a href="http://mareagranate.org/?cat=8">Nueva York</a></li>
+		<li id="menu-item-1405" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1405"><a href="http://mareagranate.org/?author=9">Uruguay</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1214" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1214"><a href="http://mareagranate.org/?cat=148">Europa</a>
+	<ul class="sub-menu">
+		<li id="menu-item-29" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-29"><a href="http://mareagranate.org/?cat=6">Berlin</a></li>
+		<li id="menu-item-49" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-49"><a href="http://mareagranate.org/?cat=11">Brighton</a></li>
+		<li id="menu-item-1368" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1368"><a href="http://mareagranate.org/?author=16">Bruselas</a></li>
+		<li id="menu-item-1264" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1264"><a href="http://mareagranate.org/?cat=152">Devon</a></li>
+		<li id="menu-item-1280" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1280"><a href="http://mareagranate.org/?cat=160">Dublín</a></li>
+		<li id="menu-item-1299" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1299"><a href="http://mareagranate.org/?author=14">Lisboa</a></li>
+		<li id="menu-item-1237" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1237"><a href="http://mareagranate.org/?author=3">Londres</a></li>
+		<li id="menu-item-1352" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1352"><a href="http://mareagranate.org/?author=15">Marsella-PACA</a></li>
+		<li id="menu-item-1269" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1269"><a href="http://mareagranate.org/?cat=153">Milán</a></li>
+		<li id="menu-item-1239" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1239"><a href="http://mareagranate.org/?author=11">Montpellier</a></li>
+		<li id="menu-item-55" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-55"><a href="http://mareagranate.org/?cat=15">Munich</a></li>
+		<li id="menu-item-1236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1236"><a href="http://mareagranate.org/?author=2">Paris</a></li>
+		<li id="menu-item-1240" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1240"><a href="http://mareagranate.org/?author=6">Viena</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-1163" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1163"><a href="http://mareagranate.org/?cat=145">Grupos de Trabajo</a>
+<ul class="sub-menu">
+	<li id="menu-item-1165" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1165"><a href="http://mareagranate.org/?cat=146">Voto</a></li>
+	<li id="menu-item-1164" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1164"><a href="http://mareagranate.org/?cat=147">Sanidad</a></li>
+</ul>
+</li>
+<li id="menu-item-316" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-316"><a href="http://mareagranate.org/?cat=35">Prensa</a>
+<ul class="sub-menu">
+	<li id="menu-item-318" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-318"><a href="http://mareagranate.org/?page_id=315">Hablan de nosotros</a></li>
+	<li id="menu-item-317" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-317"><a href="http://mareagranate.org/?cat=34">Comunicados de prensa</a></li>
+</ul>
+</li>
+<li id="menu-item-545" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-545"><a href="http://mareagranate.org/?page_id=542">Descargas</a></li>
+<li id="menu-item-465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465"><a href="http://mareagranate.org/?page_id=18">Contacto</a></li>
+</ul><div id="mobile-menu" class="menu-nodos-container"><span>Menu</span><ul id="toggle-view-menu"><li class="clearfix"><h3><a href="http://mareagranate.org">Home</a></h3></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1219 clearfix"><h3><a href="http://mareagranate.org/?page_id=2">Manifiesto</a></h3></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1213 clearfix"><h3><a href="http://mareagranate.org/?cat=148">Nodos</a></h3>
+<span>+</span><div class='clear'></div><div class='menu-panel clearfix'><ul>	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1215"><a href="http://mareagranate.org/?cat=148">América</a><ul>		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1291"><a href="http://mareagranate.org/?author=12">Centroamérica</a></li>
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-54"><a href="http://mareagranate.org/?cat=16">Montreal</a></li>
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-31"><a href="http://mareagranate.org/?cat=8">Nueva York</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1405"><a href="http://mareagranate.org/?author=9">Uruguay</a></li>
+</ul></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1214"><a href="http://mareagranate.org/?cat=148">Europa</a><ul>		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-29"><a href="http://mareagranate.org/?cat=6">Berlin</a></li>
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-49"><a href="http://mareagranate.org/?cat=11">Brighton</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1368"><a href="http://mareagranate.org/?author=16">Bruselas</a></li>
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1264"><a href="http://mareagranate.org/?cat=152">Devon</a></li>
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1280"><a href="http://mareagranate.org/?cat=160">Dublín</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1299"><a href="http://mareagranate.org/?author=14">Lisboa</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1237"><a href="http://mareagranate.org/?author=3">Londres</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1352"><a href="http://mareagranate.org/?author=15">Marsella-PACA</a></li>
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1269"><a href="http://mareagranate.org/?cat=153">Milán</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1239"><a href="http://mareagranate.org/?author=11">Montpellier</a></li>
+		<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-55"><a href="http://mareagranate.org/?cat=15">Munich</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1236"><a href="http://mareagranate.org/?author=2">Paris</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1240"><a href="http://mareagranate.org/?author=6">Viena</a></li>
+</ul></li>
+</ul></div>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1163 clearfix"><h3><a href="http://mareagranate.org/?cat=145">Grupos de Trabajo</a></h3>
+<span>+</span><div class='clear'></div><div class='menu-panel clearfix'><ul>	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1165"><a href="http://mareagranate.org/?cat=146">Voto</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1164"><a href="http://mareagranate.org/?cat=147">Sanidad</a></li>
+</ul></div>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-316 clearfix"><h3><a href="http://mareagranate.org/?cat=35">Prensa</a></h3>
+<span>+</span><div class='clear'></div><div class='menu-panel clearfix'><ul>	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-318"><a href="http://mareagranate.org/?page_id=315">Hablan de nosotros</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-317"><a href="http://mareagranate.org/?cat=34">Comunicados de prensa</a></li>
+</ul></div>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-545 clearfix"><h3><a href="http://mareagranate.org/?page_id=542">Descargas</a></h3></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-465 clearfix"><h3><a href="http://mareagranate.org/?page_id=18">Contacto</a></h3></li>
+</ul></div>            </nav>
+            <!-- main-nav -->
+            <div class="search-box clearfix">
+
+                <form action="http://mareagranate.org" class="search-form clearfix" method="get">
+    <input type="text" onBlur="if (this.value == '')
+        this.value = this.defaultValue;" onFocus="if (this.value == this.defaultValue)
+        this.value = '';" value="Enter keyworks" name="s" class="search-text">
+    <input type="submit" value="Go" class="search-submit">
+</form>
+            </div>
+            <!--search-box-->
+        </div>
+        <!-- wrapper -->
+    </div>
+    <!-- header-bottom -->
+
+<!-- google visualize START ---> 
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    
+  <script type='text/javascript'>
+     google.load('visualization', '1', {'packages': ['geochart']});
+     google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+
+['País', 'Inscritas en CERA'],
+[' ARGENTINA', 367227],
+[' FRANCIA', 185220],
+[' VENEZUELA', 155893],
+[' CUBA', 104984],
+[' BRASIL', 101450],
+[' ALEMANIA', 97131],
+[' MÉXICO', 91689],
+[' ESTADOS UNIDOS DE AMÉRICA', 82084],
+[' SUIZA', 81471],
+[' REINO UNIDO', 63895],
+[' URUGUAY', 55547],
+[' CHILE', 46310],
+[' BÉLGICA', 40765],
+[' ANDORRA', 21380],
+[' ECUADOR', 19495],
+[' PAÍSES BAJOS', 17113],
+[' AUSTRALIA', 16030],
+[' COLOMBIA', 15098],
+[' ITALIA', 14720],
+[' PERÚ', 13623],
+[' REPÚBLICA DOMINICANA', 13054],
+[' CANADÁ', 11576],
+[' PORTUGAL', 8058],
+[' PANAMÁ', 7257],
+[' GUATEMALA', 6053],
+[' COSTA RICA', 5594],
+[' SUECIA', 5292],
+[' BOLIVIA', 4962],
+[' MARRUECOS', 4284],
+[' IRLANDA', 4183],
+[' PARAGUAY', 3619],
+[' CHINA', 3317],
+[' LUXEMBURGO', 3067],
+[' FILIPINAS', 2725],
+[' AUSTRIA', 2713],
+[' NORUEGA', 2414],
+[' DINAMARCA', 1978],
+[' EMIRATOS ÁRABES UNIDOS', 1972],
+[' HONDURAS', 1880],
+[' EL SALVADOR', 1827],
+[' ISRAEL', 1689],
+[' RUSIA', 1569],
+[' JAPÓN', 1345],
+[' SUDÁFRICA', 1328],
+[' FINLANDIA', 1200],
+[' GUINEA ECUATORIAL', 1184],
+[' NICARAGUA', 1143],
+[' TURQUÍA', 1052],
+[' GRECIA', 1025],
+[' ARABIA SAUDÍ', 882],
+[' QATAR', 797],
+[' SINGAPUR', 736],
+[' POLONIA', 709],
+[' JORDANIA', 681],
+[' INDIA', 568],
+[' REPÚBLICA CHECA', 562],
+[' LÍBANO', 533],
+[' NUEVA ZELANDA', 484],
+[' TAILANDIA', 474],
+[' ARGELIA', 456],
+[' EGIPTO', 419],
+[' OTROS PAÍSES O TERRITORIOS DE ASIA', 419],
+[' INDONESIA', 358],
+[' RUMANÍA', 316],
+[' TÚNEZ', 307],
+[' LIECHTENSTEIN', 299],
+[' HUNGRÍA', 289],
+[' SIRIA', 281],
+[' ANGOLA', 266],
+[' COREA', 265],
+[' SENEGAL', 249],
+[' MALASIA', 238],
+[' UCRANIA', 232],
+[' NAMIBIA', 221],
+[' PAKISTÁN', 197],
+[' MOZAMBIQUE', 181],
+[' MÓNACO', 180],
+[' VIETNAM', 177],
+[' KENIA', 176],
+[' CAMERÚN', 152],
+[' SERBIA', 151],
+[' COSTA DE MARFIL', 151],
+[' BULGARIA', 150],
+[' CHIPRE', 149],
+[' MALTA', 140],
+[' REPÚBLICA DEMOCRÁTICA DEL CONGO', 140],
+[' NIGERIA', 133],
+[' CROACIA', 128],
+[' REPÚBLICA ESLOVACA', 122],
+[' MAURITANIA', 117],
+[' ISLANDIA', 110],
+[' GHANA', 100],
+[' KUWAIT', 97],
+[' ETIOPÍA', 90],
+[' JAMAICA', 88],
+[' CABO VERDE', 84],
+[' LIBIA', 82],
+[' ESLOVENIA', 78],
+[' TANZANIA', 76],
+[' OMÁN', 73],
+[' LITUANIA', 72],
+[' GABÓN', 70],
+[' ESTONIA', 60],
+[' HAITÍ', 59],
+[' IRÁN', 57],
+[' ZIMBABWE', 56],
+[' BOSNIA Y HERZEGOVINA', 52],
+[' TRINIDAD Y TOBAGO', 52],
+[' GUINEA-BISSAU', 51],
+[' BAHAMAS', 51],
+[' LETONIA', 50],
+[' SUDÁN', 45],
+[' CAMBOYA', 44],
+[' KAZAJSTÁN', 39],
+[' GAMBIA', 38],
+[' AFGANISTÁN', 37],
+[' BENIN', 36],
+[' MALI', 34],
+[' MADAGASCAR', 31],
+[' ALBANIA', 30],
+[' BANGLADESH', 27],
+[' MAURICIO', 25],
+[' UGANDA', 25],
+[' RUANDA', 23],
+[' TOGO', 22],
+[' SRI LANKA', 22],
+[' NÍGER', 21],
+[' MALAWI', 19],
+[' BAHRÉIN', 19],
+[' GUINEA', 18],
+[' TIMOR ORIENTAL', 18],
+[' GEORGIA', 17],
+[' MACEDONIA', 17],
+[' BURKINA FASO', 17],
+[' CHAD', 17],
+[' LIBERIA', 17],
+[' BARBADOS', 17],
+[' IRAQ', 17],
+[' ZAMBIA', 15],
+[' LAOS', 10],
+[' NEPAL', 10],
+[' MONTENEGRO', 9],
+[' SEYCHELLES', 9],
+[' MOLDAVIA', 8],
+[' BOTSWANA', 8],
+[' ANTIGUA Y BARBUDA', 8],
+[' BELICE', 8],
+[' UZBEKISTÁN', 8],
+[' AZERBAIYÁN', 7],
+[' MALDIVAS', 7],
+[' BELARÚS', 6],
+[' REPÚBLICA CENTROAFRICANA', 6],
+[' SIERRA LEONA', 6],
+[' SUDÁN DEL SUR', 6],
+[' SANTA LUCÍA', 6],
+[' YEMEN', 6],
+[' MYANMAR', 5],
+[' FIJI', 5],
+[' PAPÚA NUEVA GUINEA', 5],
+[' GRANADA', 4],
+[' CONGO', 3],
+[' SANTO TOMÉ Y PRÍNCIPE', 3],
+[' SWAZILANDIA', 3],
+[' BRUNEI', 3],
+[' MONGOLIA', 3],
+[' LESOTHO', 2],
+[' GUYANA', 2],
+[' VANUATU', 2],
+[' SAN MARINO', 1],
+[' SANTA SEDE', 1],
+[' BURUNDI', 1],
+[' DJIBOUTI', 1],
+[' ERITREA', 1],
+[' SAN CRISTÓBAL Y NIEVES', 1],
+[' SAN VICENTE Y LAS GRANADINAS', 1],
+[' COREA DEL NORTE (REP.POP)', 1],
+[' MICRONESIA', 1],
+[' PALAOS', 1]
+        ]);
+
+        var options = {
+        	colorAxis: {maxValue: 400000,
+			    colors: ['#FFFFFF','#dcaf70', '#BA4357','#AF1F4F','#AF1F4F','#AF1F4F','#AF1F4F','#AF1F4F','#AF1F4F','#AF1F4F']}
+	};        
+
+	<!-- colores amarillos:  ['#F3F781','#dcaf70', '#BA4357','#AF1F4F','#AF1F4F','#AF1F4F','#AF1F4F','#AF1F4F','#AF1F4F','#AF1F4F'] ---> 
+
+        var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    };
+    </script>
+
+
+
+<!-- google visualize END ---> 
+
+</header>
+<!-- page-header -->
+
+<div id="main-content">
+    <div class="wrapper clearfix">
+<div class="col-a">
+    
+        <div class="kopa-single-1">
+    <div id="post-1427" class="post-1427 attachment type-attachment status-inherit hentry entry-box clearfix">              
+                <header>
+            <h4 class="entry-title">MG-PERU-09</h4>
+            <span class="entry-date">&mdash; 23/05/2014</span>
+            <a href="http://mareagranate.org/?attachment_id=1427#respond" class="entry-comments"  title="Comentarios en MG-PERU-09">0</a>            <span class="entry-view">1</span>
+        </header>
+        
+        <div class="elements-box">
+            <p class="attachment"><a href='http://mareagranate.org/wp-content/uploads/2014/05/MG-PERU-09.jpg'><img width="200" height="300" src="http://mareagranate.org/wp-content/uploads/2014/05/MG-PERU-09-200x300.jpg" class="attachment-medium" alt="MG-PERU-09" /></a></p>
+        </div>
+
+        <div class="border-box">
+            
+            <div class="wrap-page-links clearfix">
+                <div class="page-links">
+                                    </div><!--page-links-->
+            </div><!--wrap-page-links-->
+
+            <div class="clear"></div>
+        </div><!-- border-box -->
+        
+        
+        <footer class="clearfix">
+            
+        </footer>
+    </div><!--entry-box-->
+</div>
+            <div class="about-author clearfix">
+            <div class="about-author-detail clearfix">
+                <a class="avatar-thumb" href="http://mareagranate.org?author_name"><img alt='' src='http://1.gravatar.com/avatar/b4e594d87b85f4c6e067f88ee561fb73?s=155&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D155&amp;r=G' class='author-avatar avatar avatar-155 photo' height='155' width='155' /></a>
+                <div class="author-content">
+                    <header>                              
+                        <a class="author-name" href="http://mareagranate.org?author_name">admin</a>
+                    </header>
+                    <p></p>
+                    <p><strong>View all contributions by</strong> <a href="http://mareagranate.org?author_name">admin</a></p>
+                    
+                                        <!-- social-link -->
+                </div><!--author-content-->
+            </div>
+        </div><!--about-author-->
+    
+    
+    
+    								<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/?attachment_id=1427#respond" style="display:none;"><span class="title-text">Cancel</span></a></small></h3>
+									<form action="http://mareagranate.org/wp-comments-post.php" method="post" id="comments-form" class="comment-form">
+																			<span class="c-note">Your email address will not be published. Required fields are marked <strong>*</strong></span>							<div class="comment-left"><p class="input-block">               
+                <label class="required" for="comment_name" >Name <span>(required):</span></label>
+                <input type="text" name="author" id="comment_name"                 
+                value="">                                               
+                </p>
+<p class="input-block">   
+                <label for="comment_email" class="required">Email <span>(required):</span></label>                                            
+                <input type="email" name="email" id="comment_email"                                                                 
+                value="" >
+                </p>
+<p class="input-block">   
+                <label for="comment_url" class="required">Website</label>                                                            
+                <input type="url" name="url" id="comment_url"                 
+                value="" >
+                </p></div>
+												<div class="comment-right"><p class="textarea-block">
+        <label class="required" for="comment_message">Your comment <span>(required):</span></label>        
+        <textarea name="comment" id="comment_message"></textarea>
+        </p></div><div class="clear"></div>												<p class="form-submit">
+							<input name="submit" type="submit" id="submit-comment" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='1427' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="d202cc5614" /></p>
+	<p class="comment-form-ant-spm" style="clear:both;">
+		<strong>Current <span style="display:none;">day</span> <span style="display:none;">month</span> <span style="display:inline;">ye@r</span></strong> <span class="required">*</span>
+		<input type="hidden" name="ant-spm-a" id="ant-spm-a" value="2014" />
+		<input type="text" name="ant-spm-q" id="ant-spm-q" size="30" value="21" />
+	</p>
+	
+	<p class="comment-form-ant-spm-2" style="display:none;">
+		<strong>Leave this field empty</strong> <span class="required">*</span>
+		<input type="text" name="ant-spm-e-email-url" id="ant-spm-e-email-url" size="30" value=""/>
+	</p>
+						</form>
+							</div><!-- #respond -->
+			
+    
+</div>
+<!-- col-a -->
+<div class="sidebar col-b widget-area-2">
+    <div id="text-5" class="widget widget_text"><h3 class="widget-title">Boletín EX-PRESS 3</h3>			<div class="textwidget"><div data-configid="10523919/7151203" style="width: 300px; height: 300px;" class="issuuembed"></div><script type="text/javascript" src="//e.issuu.com/embed.js" async="true"></script></div>
+		</div><div id="simpletags-2" class="widget widget-simpletags">
+<!-- Generated by Simple Tags 2.3.2 - http://wordpress.org/extend/plugins/simple-tags -->
+	<div class="st-tag-cloud">
+	<a href="http://mareagranate.org/?tag=voto-2" id="tag-link-134" class="st-tags t2" title="3 topics"  style="font-size:9.11pt; color:#c7b5bc;">voto</a>
+<a href="http://mareagranate.org/?tag=26j" id="tag-link-24" class="st-tags t1" title="1 topics"  style="font-size:8pt; color:#cccccc;">#26J</a>
+<a href="http://mareagranate.org/?tag=educacion" id="tag-link-65" class="st-tags t2" title="3 topics"  style="font-size:9.11pt; color:#c7b5bc;">Educación</a>
+<a href="http://mareagranate.org/?tag=emigracion" id="tag-link-74" class="st-tags t6" title="8 topics"  style="font-size:13.56pt; color:#b75b7e;">emigracion</a>
+<a href="http://mareagranate.org/?tag=desdetodaspartes" id="tag-link-39" class="st-tags t2" title="3 topics"  style="font-size:9.11pt; color:#c7b5bc;">DesdeTodasPartes</a>
+<a href="http://mareagranate.org/?tag=escrache" id="tag-link-98" class="st-tags t3" title="4 topics"  style="font-size:10.22pt; color:#c39fac;">escrache</a>
+<a href="http://mareagranate.org/?tag=featured" id="tag-link-60" class="st-tags t5" title="7 topics"  style="font-size:12.44pt; color:#bb728d;">featured</a>
+<a href="http://mareagranate.org/?tag=sinmiedo" id="tag-link-50" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">#SinMiedo</a>
+<a href="http://mareagranate.org/?tag=uruguay" id="tag-link-44" class="st-tags t5" title="7 topics"  style="font-size:12.44pt; color:#bb728d;">Uruguay</a>
+<a href="http://mareagranate.org/?tag=marchas-de-la-dignidad" id="tag-link-88" class="st-tags t3" title="4 topics"  style="font-size:10.22pt; color:#c39fac;">Marchas de la Dignidad</a>
+<a href="http://mareagranate.org/?tag=nadaquecelebrar" id="tag-link-144" class="st-tags t4" title="5 topics"  style="font-size:11.33pt; color:#bf889d;">#NadaQueCelebrar</a>
+<a href="http://mareagranate.org/?tag=ppsoe" id="tag-link-125" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">ppsoe</a>
+<a href="http://mareagranate.org/?tag=diputados" id="tag-link-115" class="st-tags t1" title="1 topics"  style="font-size:8pt; color:#cccccc;">Diputados</a>
+<a href="http://mareagranate.org/?tag=derecho-a-decidir" id="tag-link-90" class="st-tags t2" title="3 topics"  style="font-size:9.11pt; color:#c7b5bc;">derecho a decidir</a>
+<a href="http://mareagranate.org/?tag=12o" id="tag-link-33" class="st-tags t4" title="5 topics"  style="font-size:11.33pt; color:#bf889d;">12O</a>
+<a href="http://mareagranate.org/?tag=acciones" id="tag-link-23" class="st-tags t2" title="3 topics"  style="font-size:9.11pt; color:#c7b5bc;">Acciones</a>
+<a href="http://mareagranate.org/?tag=europeas" id="tag-link-97" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">europeas</a>
+<a href="http://mareagranate.org/?tag=mg-viena" id="tag-link-53" class="st-tags t4" title="5 topics"  style="font-size:11.33pt; color:#bf889d;">MG Viena</a>
+<a href="http://mareagranate.org/?tag=tramites" id="tag-link-46" class="st-tags t2" title="3 topics"  style="font-size:9.11pt; color:#c7b5bc;">trámites</a>
+<a href="http://mareagranate.org/?tag=voto-rogado" id="tag-link-102" class="st-tags t2" title="3 topics"  style="font-size:9.11pt; color:#c7b5bc;">Voto Rogado</a>
+<a href="http://mareagranate.org/?tag=elecciones" id="tag-link-72" class="st-tags t4" title="6 topics"  style="font-size:11.33pt; color:#bf889d;">elecciones</a>
+<a href="http://mareagranate.org/?tag=paris" id="tag-link-1" class="st-tags t5" title="7 topics"  style="font-size:12.44pt; color:#bb728d;">Paris</a>
+<a href="http://mareagranate.org/?tag=consulado" id="tag-link-69" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">Consulado</a>
+<a href="http://mareagranate.org/?tag=marea-granate" id="tag-link-42" class="st-tags t10" title="13 topics"  style="font-size:18pt; color:#a70240;">Marea Granate</a>
+<a href="http://mareagranate.org/?tag=votorogadovotorobado" id="tag-link-101" class="st-tags t4" title="5 topics"  style="font-size:11.33pt; color:#bf889d;">VotoRogadoVotoRobado</a>
+<a href="http://mareagranate.org/?tag=elecciones-europeas" id="tag-link-133" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">elecciones europeas</a>
+<a href="http://mareagranate.org/?tag=marea-granate-brighton" id="tag-link-25" class="st-tags t1" title="1 topics"  style="font-size:8pt; color:#cccccc;">Marea Granate Brighton</a>
+<a href="http://mareagranate.org/?tag=montevideo" id="tag-link-13" class="st-tags t3" title="4 topics"  style="font-size:10.22pt; color:#c39fac;">Montevideo</a>
+<a href="http://mareagranate.org/?tag=mg" id="tag-link-154" class="st-tags t7" title="9 topics"  style="font-size:14.67pt; color:#b3456e;">mg</a>
+<a href="http://mareagranate.org/?tag=acta" id="tag-link-21" class="st-tags t3" title="4 topics"  style="font-size:10.22pt; color:#c39fac;">Acta</a>
+<a href="http://mareagranate.org/?tag=cooperacion" id="tag-link-117" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">cooperación</a>
+<a href="http://mareagranate.org/?tag=aecid" id="tag-link-116" class="st-tags t1" title="1 topics"  style="font-size:8pt; color:#cccccc;">AECID</a>
+<a href="http://mareagranate.org/?tag=londres-2" id="tag-link-79" class="st-tags t3" title="4 topics"  style="font-size:10.22pt; color:#c39fac;">londres</a>
+<a href="http://mareagranate.org/?tag=mg-berlin" id="tag-link-55" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">MG Berlin</a>
+<a href="http://mareagranate.org/?tag=marchas-por-la-dignidad" id="tag-link-87" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">Marchas por la Dignidad</a>
+<a href="http://mareagranate.org/?tag=marea-granate-montevideo" id="tag-link-29" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">Marea Granate Montevideo</a>
+<a href="http://mareagranate.org/?tag=aborto" id="tag-link-81" class="st-tags t2" title="3 topics"  style="font-size:9.11pt; color:#c7b5bc;">aborto</a>
+<a href="http://mareagranate.org/?tag=mareaverde" id="tag-link-40" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">MareaVerde</a>
+<a href="http://mareagranate.org/?tag=15m-berlin" id="tag-link-26" class="st-tags t1" title="1 topics"  style="font-size:8pt; color:#cccccc;">15M Berlin</a>
+<a href="http://mareagranate.org/?tag=embajada" id="tag-link-70" class="st-tags t1" title="2 topics"  style="font-size:8pt; color:#cccccc;">Embajada</a>
+<a href="http://mareagranate.org/?tag=22m" id="tag-link-85" class="st-tags t4" title="5 topics"  style="font-size:11.33pt; color:#bf889d;">22M</a>
+<a href="http://mareagranate.org/?tag=nuevas" id="tag-link-148" class="st-tags t7" title="10 topics"  style="font-size:14.67pt; color:#b3456e;">nuevas</a>
+<a href="http://mareagranate.org/?tag=convocatorias" id="tag-link-20" class="st-tags t4" title="5 topics"  style="font-size:11.33pt; color:#bf889d;">Convocatorias</a>
+<a href="http://mareagranate.org/?tag=parlamento-europeo" id="tag-link-73" class="st-tags t3" title="4 topics"  style="font-size:10.22pt; color:#c39fac;">Parlamento Europeo</a>
+<a href="http://mareagranate.org/?tag=marea-granate-montreal" id="tag-link-22" class="st-tags t1" title="1 topics"  style="font-size:8pt; color:#cccccc;">Marea Granate Montreal</a></div>
+
+</div><div id="text-2" class="widget widget_text"><h3 class="widget-title">Twitter</h3>			<div class="textwidget"><a class="twitter-timeline" href="https://twitter.com/MareaGranate" data-widget-id="349014734617604096">Tweets por @MareaGranate</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+		</div><div id="facebook-like-box-2" class="widget widget_facebook-like-box"><h3 class="widget-title">Facebook</h3><div class="fb-social-plugin fb-like-box" data-href="https://www.facebook.com/mareagranateinternacional" data-width="325" data-height="300" data-show-faces="true" data-stream="false" data-show-border="false"></div></div><div id="kopa_widget_articles_list_2-2" class="widget kopa-most-review-widget"><h3 class="widget-title">Entradas recientes</h3>
+                                <ul class="clearfix">
+            
+                            <li>
+                    <article class="entry-item clearfix">
+                        
+                                                    <div class="entry-thumb">
+                                <a href="http://mareagranate.org/?p=1412"><img width="150" height="150" src="http://mareagranate.org/wp-content/uploads/2014/04/urna-150x150.png" class="attachment-thumbnail wp-post-image" alt="urna" /></a>
+                            </div>
+                                                
+                        <div class="entry-content">
+                            <h4 class="entry-title"><a href="http://mareagranate.org/?p=1412">Vota por ti, vota por nosotras</a></h4>
+                            <span class="entry-date"><span class="kopa-minus"></span>&mdash; 22/05/2014</span>
+                        </div>
+                    </article>
+                </li>
+
+                            <li>
+                    <article class="entry-item clearfix">
+                        
+                                                    <div class="entry-thumb">
+                                <a href="http://mareagranate.org/?p=1407"><img width="150" height="150" src="http://mareagranate.org/wp-content/uploads/2014/05/Miguel-e-Isma-libertad-150x150.jpg" class="attachment-thumbnail wp-post-image" alt="Miguel e Isma libertad" /></a>
+                            </div>
+                                                
+                        <div class="entry-content">
+                            <h4 class="entry-title"><a href="http://mareagranate.org/?p=1407">Con los detenidos del 22M</a></h4>
+                            <span class="entry-date"><span class="kopa-minus"></span>&mdash; 22/05/2014</span>
+                        </div>
+                    </article>
+                </li>
+
+                            <li>
+                    <article class="entry-item clearfix">
+                        
+                                                
+                        <div class="entry-content">
+                            <h4 class="entry-title"><a href="http://mareagranate.org/?p=1386">Declaración de Granada</a></h4>
+                            <span class="entry-date"><span class="kopa-minus"></span>&mdash; 17/05/2014</span>
+                        </div>
+                    </article>
+                </li>
+
+            
+            </ul>
+        
+        </div></div>
+<!-- col-b -->
+<div class="clear"></div>
+    
+    </div> <!-- wrapper -->
+</div> <!-- main-content -->
+
+<div id="bottom-sidebar">
+    <div class="wrapper">
+        <header>
+            <div id="bottom-logo">
+                <a href="http://mareagranate.org">
+                    Marea Granate                </a>
+            </div>
+            <p id="back-top">
+                <a href="#top"></a>
+            </p>
+            <!-- back-top -->
+        </header>
+        <div class="row-fluid">
+                    </div>
+        <!-- row-fluid -->
+    </div>
+    <!-- wrapper -->
+</div>
+<!-- bottom-sidebar-->
+
+<footer id="page-footer">
+    <div class="wrapper clearfix">
+        
+        <div id="copyright"><p class="attachment"><a href='http://mareagranate.org/wp-content/uploads/2014/05/MG-PERU-09.jpg'><img width="200" height="300" src="http://mareagranate.org/wp-content/uploads/2014/05/MG-PERU-09-200x300.jpg" class="attachment-medium" alt="MG-PERU-09" /></a></p>
+<p>Marea Granate, 2014</p>
+</div>
+        
+        <ul id="footer-menu" class="clearfix"><li id="menu-item-79" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79"><a href="http://mareagranate.org/?post_type=tribe_events">Agenda</a></li>
+<li id="menu-item-251" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-251"><a href="http://mareagranate.org/?page_id=250">Deutsch</a></li>
+<li id="menu-item-252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-252"><a href="http://mareagranate.org/?page_id=249">English</a></li>
+<li id="menu-item-253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-253"><a href="http://mareagranate.org/?page_id=244">Français</a></li>
+<li id="menu-item-337" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-337"><a href="http://mareagranate.org/?page_id=334">Italiano</a></li>
+</ul>        
+    </div>
+    <!-- wrapper -->
+</footer>
+<!-- page-footer -->
+
+<input type="hidden" id="kopa_set_view_count_wpnonce" name="kopa_set_view_count_wpnonce" value="a09e816624" /><input type="hidden" id="kopa_set_user_rating_wpnonce" name="kopa_set_user_rating_wpnonce" value="797f076428" /><script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.50.0-2014.02.05'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/mareagranate.org\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Enviando..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.8'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/superfish.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/retina.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/bootstrap.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/jquery.flexslider-min.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/tweetable.jquery.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/jquery.timeago.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/jquery.prettyPhoto.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/jquery.carouFredSel-6.0.4-packed.js?ver=6.0.4'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/jquery.exposure.js?ver=1.0.1'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/jquery.form.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/jquery.validate.min.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/modernizr-transitions.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/jquery.masonry.min.js'></script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/set-view-count.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kopa_custom_front_localization = {"validate":{"form":{"submit":"Submit","sending":"Sending..."},"name":{"required":"Please enter your name.","minlength":"At least {0} characters required."},"email":{"required":"Please enter your email.","email":"Please enter a valid email."},"url":{"required":"Please enter your url.","url":"Please enter a valid url."},"message":{"required":"Please enter a message.","minlength":"At least {0} characters required."}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://mareagranate.org/wp-content/themes/musica/js/custom.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var FB_WP=FB_WP||{};FB_WP.queue={_methods:[],flushed:false,add:function(fn){FB_WP.queue.flushed?fn():FB_WP.queue._methods.push(fn)},flush:function(){for(var fn;fn=FB_WP.queue._methods.shift();){fn()}FB_WP.queue.flushed=true}};window.fbAsyncInit=function(){FB.init({"xfbml":true});if(FB_WP && FB_WP.queue && FB_WP.queue.flush){FB_WP.queue.flush()}}
+/* ]]> */
+</script>
+<script type="text/javascript">(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="http:\/\/connect.facebook.net\/es_ES\/all.js";fjs.parentNode.insertBefore(js,fjs)}(document,"script","facebook-jssdk"));</script>
+<div id="fb-root"></div>    
+
+
+</body>
+
+</html>
