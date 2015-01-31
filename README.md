@@ -39,7 +39,7 @@ local$ mysql -h localhost -u root -p wordpress < u649981589_blog.sql
 local$ mysql -u root -p
 mysql> SHOW FULL TABLES IN wordpress;
 mysql> EXIT
-local$ rm -f u649981589_blog.sql
+local$ rm -f blog.sql
 ```
 
 ### Cambiar la configuración de apache sobre nuestra carpeta local  ###
@@ -107,5 +107,10 @@ $ sudo service apache2 restart
 ```
 
 Si visitais mg-folder.org tendria que abrirse la copia local del sitio web.
+
+Accesos locales:
+admin/admin
+Marea Granate/coordinacion
+paris/paris
 
 
