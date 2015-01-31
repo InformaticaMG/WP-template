@@ -96,4 +96,6 @@ require_once(ABSPATH . 'wp-settings.php');
 define('WP_HOME','http://mg-folder.org/');
 define('WP_SITEURL','http://mg-folder.org/');
 
+/** MAR: No pedir contraseña FTP **/
+define('FS_METHOD', 'direct');
 
