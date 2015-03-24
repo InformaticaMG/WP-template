@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * display the recent commets on photos
-* Version 5.3.6
+* Version 5.5.4.003
 */
 
 if ( ! defined( 'ABSPATH' ) ) die( "Can't load this file directly" );
@@ -24,63 +24,49 @@ class wppaCommentWidget extends WP_Widget {
 
         extract( $args );
 
-		$page = in_array( $wppa_opt['wppa_comment_widget_linktype'], $wppa['links_no_page'] ) ? '' : wppa_get_the_landing_page('wppa_comment_widget_linkpage', __a('Recently commented photos'));
-
-		$max  = $wppa_opt['wppa_comten_count'];
-		$widget_title = apply_filters('widget_title', $instance['title']);
-		
-		$comments = $wpdb->get_results($wpdb->prepare( "SELECT * FROM ".WPPA_COMMENTS." WHERE `status` = 'approved' ORDER BY `timestamp` DESC LIMIT %d", $max ), ARRAY_A );
-
+		$page 			= in_array( $wppa_opt['wppa_comment_widget_linktype'], $wppa['links_no_page'] ) ? '' : wppa_get_the_landing_page('wppa_comment_widget_linkpage', __a('Recently commented photos'));
+		$max  			= $wppa_opt['wppa_comten_count'];
+		$widget_title 	= apply_filters('widget_title', $instance['title']);
+		$photo_ids 		= wppa_get_comten_ids( $max );
 		$widget_content = "\n".'<!-- WPPA+ Comment Widget start -->';
-		$maxw = $wppa_opt['wppa_comten_size'];
-		$maxh = $maxw + 18;
+		$maxw 			= $wppa_opt['wppa_comten_size'];
+		$maxh 			= $maxw + 18;
 
-		if ($comments) foreach ($comments as $comment) {
+		if ( $photo_ids ) foreach( $photo_ids as $id ) {
 		
 			// Make the HTML for current comment
 			$widget_content .= "\n".'<div class="wppa-widget" style="width:'.$maxw.'px; height:'.$maxh.'px; margin:4px; display:inline; text-align:center; float:left;">'; 
-			$image = $wpdb->get_row($wpdb->prepare( "SELECT * FROM `".WPPA_PHOTOS."` WHERE `id` = %s", $comment['photo'] ), ARRAY_A );
-			if ($image) {
 			
-				global $thumb;
-				$thumb = $image;
-				
-				$no_album 	= true;//!$album;
-				$tit		= esc_attr(wppa_qtrans(stripslashes($comment['comment'])));
-				$link       = wppa_get_imglnk_a('comten', $image['id'], '', $tit, $no_album);
-				$file       = wppa_get_thumb_path($image['id']);
-				$imgstyle_a = wppa_get_imgstyle_a($file, $maxw, 'center', 'comthumb');
+			$image = wppa_cache_thumb( $id );
+			
+			if ( $image ) {
+			
+				$link       = wppa_get_imglnk_a( 'comten', $id, '', '', true );
+				$file       = wppa_get_thumb_path( $id );
+				$imgstyle_a = wppa_get_imgstyle_a( $id, $file, $maxw, 'center', 'comthumb' );
 				$imgstyle   = $imgstyle_a['style'];
 				$width      = $imgstyle_a['width'];
 				$height     = $imgstyle_a['height'];
 				$cursor		= $imgstyle_a['cursor'];
-				$imgurl 	= wppa_get_thumb_url($image['id'], '', $width, $height);
+				$imgurl 	= wppa_get_thumb_url($id, '', $width, $height);
 				
-				$imgevents = wppa_get_imgevents('thumb', $image['id'], true);	
+				$imgevents = wppa_get_imgevents('thumb', $id, true);	
 
-//				if ($link) $title = esc_attr(stripslashes($link['title']));
-//				else 
-				$title = esc_attr($comment['comment']);
-				if ($link) {
-					if ( $link['is_url'] ) {	// Is a href
-						$widget_content .= "\n\t".'<a href="'.$link['url'].'" target="'.$link['target'].'" title="'.$title.'">';
-							$widget_content .= "\n\t\t".'<img id="i-'.$image['id'].'-'.$wppa['master_occur'].'" title="'.$title.'" src="'.$imgurl.'" width="'.$width.'" height="'.$height.'" style="'.$imgstyle.' cursor:pointer;" '.$imgevents.' alt="'.esc_attr(wppa_qtrans($image['name'])).'">';
-						$widget_content .= "\n\t".'</a>';
-					}
-					elseif ( $link['is_lightbox'] ) {
-						$title = wppa_get_lbtitle('thumb', $image['id']);
-						$widget_content .= "\n\t".'<a href="'.$link['url'].'" rel="'.$wppa_opt['wppa_lightbox_name'].'[comment]" title="'.$title.'">';
-							$widget_content .= "\n\t\t".'<img id="i-'.$image['id'].'-'.$wppa['master_occur'].'" title="'.wppa_zoom_in().'" src="'.$imgurl.'" width="'.$width.'" height="'.$height.'" style="'.$imgstyle.$cursor.'" '.$imgevents.' alt="'.esc_attr(wppa_qtrans($image['name'])).'">';
-						$widget_content .= "\n\t".'</a>';
-					}
-					else { // Is an onclick unit
-						$widget_content .= "\n\t".'<img id="i-'.$image['id'].'-'.$wppa['master_occur'].'" title="'.$title.'" src="'.$imgurl.'" width="'.$width.'" height="'.$height.'" style="'.$imgstyle.' cursor:pointer;" '.$imgevents.' onclick="'.$link['url'].'" alt="'.esc_attr(wppa_qtrans($image['name'])).'">';					
-					}
+				$title = '';
+				$comments = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `".WPPA_COMMENTS."` WHERE `photo` = %s ORDER BY `timestamp` DESC", $id ), ARRAY_A );
+				if ( $comments ) foreach ( $comments as $comment ) {
+					$title .= $comment['user'].' '.__a( 'wrote' ).' '.wppa_get_time_since( $comment['timestamp'] ).":\n";
+					$title .= $comment['comment']."\n\n";
 				}
-				else {
-					$widget_content .= "\n\t".'<img id="i-'.$image['id'].'-'.$wppa['master_occur'].'" title="'.$title.'" src="'.$imgurl.'" width="'.$width.'" height="'.$height.'" style="float:right; '.$imgstyle.'" '.$imgevents.' alt="'.esc_attr(wppa_qtrans($image['name'])).'">';
-				}
+				$title = esc_attr( strip_tags( trim ( $title ) ) );
+				
+				$album = '0';
+				$display = 'thumbs';
+
+				$widget_content .= wppa_get_the_widget_thumb('comten', $image, $album, $display, $link, $title, $imgurl, $imgstyle_a, $imgevents);
+
 			}
+
 			else {
 				$widget_content .= __a('Photo not found.', 'wppa_theme');
 			}
@@ -119,5 +105,5 @@ class wppaCommentWidget extends WP_Widget {
 
 } // class wppaCommentWidget
 
-// register wppaCommentWidget widget only if comment system is enabled
+// register wppaCommentWidget widget
 add_action('widgets_init', create_function('', 'return register_widget("wppaCommentWidget");'));

@@ -6,7 +6,7 @@
 *
 * A text widget that hooks the wppa+ filter
 *
-* Version 5.1.0
+* Version 5.4.10
 */
 
 class WppaGpWidget extends WP_Widget {
@@ -25,7 +25,7 @@ class WppaGpWidget extends WP_Widget {
  		$title = apply_filters('widget_title', $instance['title']);
 
 		$wppa['in_widget'] = 'gp';
-		$wppa['master_occur']++;
+		$wppa['mocc']++;
 				
 		echo $before_widget;
 		if ( !empty( $title ) ) { echo $before_title . $title . $after_title; } 
@@ -65,8 +65,8 @@ class WppaGpWidget extends WP_Widget {
 ?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-		<p><?php _e('Enter the content just like a normal text widget. This widget will interprete %%wppa%% script commands.', 'wppa'); ?></p>
-		<p><?php echo (sprintf(__('Don\'t forget %%%%size=%s%%%%', 'wppa'), $wppa_opt['wppa_widget_width'])) ?></p>
+		<p><?php _e('Enter the content just like a normal text widget. This widget will interprete [wppa] shortcodes.', 'wppa'); ?></p>
+		<p><?php echo (sprintf(__('Don\'t forget size="%s"', 'wppa'), $wppa_opt['wppa_widget_width'])) ?></p>
 
 		<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
 

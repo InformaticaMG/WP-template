@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * Contains photo source file management routines
-* Version 5.3.0
+* Version 5.4.22
 *
 */
  
@@ -12,14 +12,35 @@ if ( ! defined( 'ABSPATH' ) ) die( "Can't load this file directly" );
 function wppa_save_source( $file, $name, $alb ) {
 global $wppa_opt;
 
-	if ( ( wppa_switch('wppa_keep_source_admin') && is_admin() ) || ( wppa_switch('wppa_keep_source_frontend') && ! is_admin() ) ) {
+	$doit = true;
+	
+	// Frontend not enabled and not ajax ?
+	if ( ! is_admin() && ! wppa_switch('wppa_keep_source_frontend') ) {
+		$doit = false;	
+	}
+	
+	// Frontend not enabled and ajax ?
+	if ( isset( $_REQUEST['wppa-action'] ) &&
+		$_REQUEST['wppa-action'] == 'do-fe-upload' &&
+		! wppa_switch('wppa_keep_source_frontend') ) {
+			$doit = false; 	
+	}
+	
+	// Backend not enabled ?
+	if ( ( ! isset( $_REQUEST['wppa-action'] ) || $_REQUEST['wppa-action'] != 'do-fe-upload' ) &&
+		is_admin() &&
+		! wppa_switch('wppa_keep_source_admin') ) {
+			$doit = false; 	
+	}
+	
+	if ( $doit ) { // ( wppa_switch('wppa_keep_source_admin') && is_admin() ) || ( wppa_switch('wppa_keep_source_frontend') && ! is_admin() ) ) {
 		if ( ! is_dir( $wppa_opt['wppa_source_dir'] ) ) @ wppa_mktree( $wppa_opt['wppa_source_dir'] );
 		$sourcedir = wppa_get_source_dir();
 		if ( ! is_dir( $sourcedir ) ) @ wppa_mktree( $sourcedir );
 		$albdir = wppa_get_source_album_dir( $alb ); 
 		if ( ! is_dir( $albdir ) ) @ wppa_mktree( $albdir );	
-		$dest = $albdir.'/'.$name;
-		if ( $file != $dest ) @ copy(  $file, $dest );	// Do not copy to self, and do not bother on failure
+		$dest = $albdir . '/' . wppa_sanitize_file_name( $name );
+		if ( $file != $dest ) @ copy( $file, $dest );	// Do not copy to self, and do not bother on failure
 	}
 }
 

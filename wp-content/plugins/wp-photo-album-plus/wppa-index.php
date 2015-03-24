@@ -3,34 +3,30 @@
 * Package: wp-photo-album-plus
 *
 * Contains all indexing functions
-* version 5.2.21
+* version 5.5.2
 *
 * 
 */
 
 // Add an item to the index
-function wppa_index_add($type, $id = '') {
-global $album;	
-global $thumb;	
+function wppa_index_add($type, $id) {
 global $wpdb;
 global $acount;
 global $pcount;
 global $wppa;
 
+/*
 	if ( ! wppa_switch('wppa_indexed_search') ) {
 		update_option('wppa_index_need_remake', 'yes');
 		return;
 	}
-	
+*/	
 	if ( $type == 'album' ) {
-		// Use cached album?
-		if ( is_numeric($id) ) {
-			$album = '';	// Clear album cache
-			wppa_cache_album($id);
-		}		
+	
+		$album = wppa_cache_album($id);
 		
-		// Find the raw text
-		$words = __( $album['name'] ).' '.wppa_get_album_desc($album['id']);
+		// Find the raw text, all qTranslate languages
+		$words = stripslashes($album['name']).' '.stripslashes($album['description']);
 		if ( wppa_switch( 'wppa_search_cats' ) ) {
 			$words .= ' '.$album['cats'];
 		}
@@ -56,14 +52,14 @@ global $wppa;
 	
 	elseif ( $type == 'photo' ) {
 		
-		// Use cached photo?
-		if ( is_numeric($id) ) {
-			$thumb = '';	// Clear cache
-			wppa_cache_thumb($id);
-		}
+		$thumb = wppa_cache_thumb($id);
 		
-		// Find the rew text
-		$words = __( $thumb['name'] ).' '.$thumb['filename'].' '.wppa_get_photo_desc( $thumb['id'] );
+		// Find the raw text
+		$desc 	= stripslashes($thumb['description']);
+		$desc 	= wppa_filter_iptc( $desc, $thumb['id'] );	// Render IPTC tags
+		$desc 	= wppa_filter_exif( $desc, $thumb['id'] );	// Render EXIF tags
+		$words 	= stripslashes($thumb['name']).' '.$thumb['filename'].' '.$desc;
+
 		if ( wppa_switch( 'wppa_search_tags' ) ) $words .= ' '.$thumb['tags'];																					// Tags
 		if ( wppa_switch( 'wppa_search_comments' ) ) {
 			$coms = $wpdb->get_results($wpdb->prepare( "SELECT `comment` FROM `" . WPPA_COMMENTS . "` WHERE `photo` = %s AND `status` = 'approved'", $thumb['id'] ), ARRAY_A );
@@ -130,6 +126,22 @@ function wppa_index_raw_to_words($xtext, $noskips = false) {
 			}
 		}
 	}
+	
+	// sort
+	sort( $result );
+	
+	// Remove dups
+	$start = 0;
+	foreach ( array_keys( $result ) as $key ) {
+		if ( $key > 0 ) {
+			if ( $result[$key] == $result[$start] ) {
+				unset ( $result[$key] );
+			}
+			else {
+				$start = $key;
+			}
+		}
+	}
 	return $result;
 }
 
@@ -155,6 +167,21 @@ function wppa_index_string_to_array($string) {
 		}
 	}
 	return $result;
+}
+
+// Remove duplicates from array
+function wppa_index_array_remove_dups( $array ) {
+	$temp = $array;
+	sort( $temp, SORT_NUMERIC );
+	$array = array();
+	$oldval = false;
+	foreach ( array_keys( $temp ) as $key ) {
+		if ( $temp[$key] != $oldval ) {
+			$array[] = $temp[$key];
+			$oldval	 = $temp[$key];
+		}
+	}
+	return $array;
 }
 
 // Compress array ranges and convert to string
@@ -186,49 +213,66 @@ function wppa_index_array_to_string($array) {
 }
 
 // Remove an item from the index Use this function if you do NOT know the current photo data matches the index info
-function wppa_index_remove($type, $id) {
+function wppa_index_remove( $type, $id ) {
 global $wpdb;
 
+	$iam_big = ( $wpdb->get_var( "SELECT COUNT(*) FROM `".WPPA_INDEX."`" ) > '10000' );	// More than 100.000 index entries,
+	if ( $iam_big && $id < '100' ) return;	// Need at least 3 digits to match
+
 	if ( $type == 'album' ) {
-		$indexes = $wpdb->get_results("SELECT * FROM `".WPPA_INDEX."` WHERE `albums` <> ''", ARRAY_A);
+		if ( $iam_big ) {
+			// This is not strictly correct, the may be 24..28 when searching for 26, this will be missed. However this will not lead to problems during search.
+			$indexes = $wpdb->get_results( "SELECT * FROM `".WPPA_INDEX."` WHERE `albums` LIKE '".$id."'", ARRAY_A );
+		}
+		else {
+			// There are too many results on large systems, resulting in a 500 error, but it is strictly correct
+			$indexes = $wpdb->get_results( "SELECT * FROM `".WPPA_INDEX."` WHERE `albums` <> ''", ARRAY_A );
+		}
 		if ( $indexes ) foreach ( $indexes as $indexline ) {
 			$array = wppa_index_string_to_array($indexline['albums']);
 			foreach ( array_keys($array) as $k ) {
 				if ( $array[$k] == $id ) {
 					unset ( $array[$k] );
 					$string = wppa_index_array_to_string($array);
-					$wpdb->query("UPDATE `".WPPA_INDEX."` SET `albums` = '".$string."' WHERE `id` = ".$indexline['id']);
+					$wpdb->query( "UPDATE `".WPPA_INDEX."` SET `albums` = '".$string."' WHERE `id` = ".$indexline['id'] );
 				}
 			}
 		}
 	}
-	elseif ( $type == 'photo') {
-		$indexes = $wpdb->get_results("SELECT * FROM `".WPPA_INDEX."` WHERE `photos` <> ''", ARRAY_A);
+	elseif ( $type == 'photo' ) {
+		if ( $iam_big ) {
+			// This is not strictly correct, the may be 24..28 when searching for 26, this will be missed. However this will not lead to problems during search.
+			$indexes = $wpdb->get_results( "SELECT * FROM `".WPPA_INDEX."` WHERE `photos` LIKE '%".$id."%'", ARRAY_A );
+		}
+		else {
+			$indexes = $wpdb->get_results( "SELECT * FROM `".WPPA_INDEX."` WHERE `photos` <> ''", ARRAY_A );
+			// There are too many results on large systems, resulting in a 500 error, but it is strictly correct
+		}
 		if ( $indexes ) foreach ( $indexes as $indexline ) {
 			$array = wppa_index_string_to_array($indexline['photos']);
 			foreach ( array_keys($array) as $k ) {
 				if ( $array[$k] == $id ) {
 					unset ( $array[$k] );
 					$string = wppa_index_array_to_string($array);
-					$wpdb->query("UPDATE `".WPPA_INDEX."` SET `photos` = '".$string."' WHERE `id` = ".$indexline['id']);
+					$wpdb->query( "UPDATE `".WPPA_INDEX."` SET `photos` = '".$string."' WHERE `id` = ".$indexline['id'] );
 				}
 			}
 		}
 	}
 	else wppa_dbg_msg('Error, unimplemented type in wppa_index_remove().', 'red', 'force');
-	$wpdb->query("DELETE FROM `".WPPA_INDEX."` WHERE `albums` = '' AND `photos` = ''");
+	
+	$wpdb->query( "DELETE FROM `".WPPA_INDEX."` WHERE `albums` = '' AND `photos` = ''" );	// Cleanup empty entries
 }
 
-// Use this function if you know the current photo data matches the index info
+// Use this function if you know the current photo data matches the index info. Mostly fails...
 function wppa_index_quick_remove($type, $id) {
-global $thumb;
 global $wpdb;
-global $album;
 
 	if ( $type == 'album' ) {
-		if ( is_numeric($id) ) wppa_cache_album($id);
+	
+		$album = wppa_cache_album($id);
 		
-		$words = __( $album['name'] ).' '.wppa_get_album_desc( $album['id'] ).' '.$album['cats'];
+		$words = stripslashes( $album['name'] ).' '.stripslashes( $album['description'] ).' '.$album['cats'];
 		$words = wppa_index_raw_to_words($words);
 		
 		foreach ( $words as $word ) {
@@ -250,10 +294,11 @@ global $album;
 		
 	}
 	elseif ( $type == 'photo') {
-		if ( is_numeric($id) ) wppa_cache_thumb($id);
+	
+		$thumb = wppa_cache_thumb($id);
 
 		// Find the raw text
-		$words = __( $thumb['name'] ).' '.$thumb['filename'].' '.wppa_get_photo_desc( $thumb['id'] ).' '.$thumb['tags'];
+		$words = stripslashes( $thumb['name'] ).' '.$thumb['filename'].' '.stripslashes( $thumb['description'] ).' '.$thumb['tags'];
 		$coms = $wpdb->get_results($wpdb->prepare( "SELECT `comment` FROM `" . WPPA_COMMENTS . "` WHERE `photo` = %s AND `status` = 'approved'", $thumb['id'] ), ARRAY_A );
 		if ( $coms ) foreach ( $coms as $com ) {
 			$words .= ' '.stripslashes( $com['comment'] );

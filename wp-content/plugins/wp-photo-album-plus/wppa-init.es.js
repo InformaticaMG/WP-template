@@ -1,15 +1,14 @@
 /* -- WPPA+ Runtime parameters
 /*
-/* Dynamicly Created on 2014-05-23T09:22:07+00:00
+/* Dynamicly Created on 2015-03-21T05:45:37+00:00
 /*
 */
 
-	wppaVersion = "5-3-08-000";
+	wppaVersion = "5-5-5-000";
 	wppaBackgroundColorImage = "#eeeeee";
 	wppaPopupLinkType = "photo";
 	wppaAnimationType = "fadeover";
 	wppaAnimationSpeed = 800;
-	wppaImageDirectory = "http://mareagranate.org/wp-content/plugins/wp-photo-album-plus/images/";
 	wppaThumbnailAreaDelta = 14;
 	wppaTextFrameDelta = 181;
 	wppaBoxDelta = 14;
@@ -57,17 +56,10 @@
 	wppaFontWeightNumbarActive = "bold";
 	wppaNumbarMax = "10";
 	wppaLang = "es";
-	wppaAjaxUrl = "http://mareagranate.org/wp-admin/admin-ajax.php";
-	wppaSiteUrl = "http://mareagranate.org";
-	wppaWppaUrl = "http://mareagranate.org/wp-content/plugins/wp-photo-album-plus";
-	wppaIncludeUrl = "http://mareagranate.org/wp-includes";
 	wppaNextOnCallback = false;
 	wppaRatingUseAjax = true;
 	wppaStarOpacity = 0.2;
-	wppaTickImg.src = "http://mareagranate.org/wp-content/plugins/wp-photo-album-plus/images/tick.png";
-	wppaClockImg.src = "http://mareagranate.org/wp-content/plugins/wp-photo-album-plus/images/clock.png";
 	wppaSlideWrap = true;
-	wppaLightBox = "";
 	wppaEmailRequired = true;
 	wppaSlideBorderWidth = 0;
 	wppaAllowAjax = false;
@@ -83,13 +75,11 @@
 	wppaArtMonkyLink = "none";
 	wppaAutoOpenComments = true;
 	wppaUpdateAddressLine = true;
-	wppaUploadUrl = "http://mareagranate.org/wp-content/uploads/wppa";
 	wppaFilmThumbTitle = "Doble click para comenzar/parar la presentación";
 	wppaVoteForMe = "Vote for me!";
 	wppaVotedForMe = "Voted for me";
 	wppaSlideSwipe = true;
 	wppaMaxCoverWidth = 1024;
-	wppaLightboxSingle = false;
 	wppaDownLoad = "Download";
 	wppaSlideToFullpopup = false; 
 	wppaComAltSize = 75;
@@ -100,3 +90,6 @@
 	wppaFotomotoHideHideWhenRunning = false;
 	wppaCommentRequiredAfterVote = false;
 	wppaFotomotoMinWidth = 400;
+	wppaShortQargs = true;
+	wppaOvlHires = false;
+	

@@ -1,7 +1,7 @@
 /* admin-styles.css 
 *
 * wp-photo-album-plus
-* version 5.2.4
+* version 5.4.19
 */
 #files_list, #files_list2
 {
@@ -131,13 +131,19 @@ ul.wppa_nav
 	max-width: 150px;
 }
 .wppa-photo-table input, .wppa-photo-table textarea, .wppa-photo-table select, .wppa-album-table input, .wppa-album-table textarea, .wppa-album-table select {
-	padding: 3px 5px !important;
+	padding: 3px 1px !important;
 }
 .wppa-setting-table td{
 	border-bottom: 1px solid #ddd;
 	font-size: 13px;
 	line-height: 15px;
 }
+.wppa-subtable td {
+	padding: 0 2px;
+	font-size: 13px;
+	line-height: 15px;
+}
+
 /**/
 
 .photoitem, .albumtable, .table_wrapper {

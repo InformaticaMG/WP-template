@@ -19,7 +19,7 @@ require trailingslashit(get_template_directory()) . '/library/front.php';
  * Include the TGM_Plugin_Activation class.
  */
 require_once get_template_directory() . '/library/includes/class-tgm-plugin-activation.php';
-
+remove_filter('pre_user_description', 'wp_filter_kses');
 add_action( 'tgmpa_register', 'kopa_register_required_plugins' );
 
 function kopa_register_required_plugins() {

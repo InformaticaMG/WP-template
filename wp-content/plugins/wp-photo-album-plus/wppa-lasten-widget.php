@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * display the last uploaded photos
-* Version 5.3.6
+* Version 5.5.4.003
 */
 
 class LasTenWidget extends WP_Widget {
@@ -21,6 +21,8 @@ class LasTenWidget extends WP_Widget {
 		global $wppa;
 
 		$wppa['in_widget'] = 'lasten';
+		$wppa['mocc']++;
+
         extract( $args );
 		
 		$instance = wp_parse_args( (array) $instance, array(
@@ -47,14 +49,27 @@ class LasTenWidget extends WP_Widget {
 
 		if ( $album == '-99' ) $album = implode("' OR `album` = '", explode(',', $albumenum));
 
-		if ( $album ) {
-			$thumbs = $wpdb->get_results( "SELECT * FROM `".WPPA_PHOTOS."` WHERE ( `album` = '".$album."' ) AND `status` <> 'pending' ORDER BY `timestamp` DESC LIMIT " . $max, ARRAY_A);
+		// If you want only 'New' photos in the selection, the period must be <> 0;
+		if ( wppa_switch ( 'wppa_lasten_limit_new' ) && wppa_opt( 'wppa_max_photo_newtime' ) ) {
+			$newtime = " `timestamp` >= ".( time() - wppa_opt( 'wppa_max_photo_newtime' ) );
+			if ( $album ) {
+				$q = "SELECT * FROM `".WPPA_PHOTOS."` WHERE (".$newtime.") AND ( `album` = '".$album."' ) AND ( `status` <> 'pending' AND `status` <> 'scheduled' ) ORDER BY `timestamp` DESC LIMIT " . $max;
+			}
+			else {
+				$q = "SELECT * FROM `".WPPA_PHOTOS."` WHERE (".$newtime.") AND `status` <> 'pending' AND `status` <> 'scheduled' ORDER BY `timestamp` DESC LIMIT " . $max;
+			}
 		}
 		else {
-			$thumbs = $wpdb->get_results( "SELECT * FROM `".WPPA_PHOTOS."` WHERE `status` <> 'pending' ORDER BY `timestamp` DESC LIMIT " . $max, ARRAY_A);
+			if ( $album ) {
+				$q = "SELECT * FROM `".WPPA_PHOTOS."` WHERE ( `album` = '".$album."' ) AND ( `status` <> 'pending' AND `status` <> 'scheduled' ) ORDER BY `timestamp` DESC LIMIT " . $max;
+			}
+			else {
+				$q = "SELECT * FROM `".WPPA_PHOTOS."` WHERE `status` <> 'pending' AND `status` <> 'scheduled' ORDER BY `timestamp` DESC LIMIT " . $max;
+			}
 		}
+		// echo $q;
+		$thumbs = $wpdb->get_results( $q, ARRAY_A );
 		
-		global $widget_content;
 		$widget_content = "\n".'<!-- WPPA+ LasTen Widget start -->';
 		$maxw = $wppa_opt['wppa_lasten_size'];
 		$maxh = $maxw;
@@ -81,12 +96,12 @@ class LasTenWidget extends WP_Widget {
 				if ($no_album) $tit = __a('View the most recent uploaded photos', 'wppa_theme'); else $tit = esc_attr(wppa_qtrans(stripslashes($image['description'])));
 				$link       = wppa_get_imglnk_a('lasten', $image['id'], '', $tit, '', $no_album, $albumenum);
 				$file       = wppa_get_thumb_path($image['id']);
-				$imgstyle_a = wppa_get_imgstyle_a($file, $maxw, 'center', 'ltthumb');
+				$imgstyle_a = wppa_get_imgstyle_a( $image['id'], $file, $maxw, 'center', 'ltthumb');
 				$imgurl 	= wppa_get_thumb_url( $image['id'], '', $imgstyle_a['width'], $imgstyle_a['height'] );
 				$imgevents 	= wppa_get_imgevents('thumb', $image['id'], true);
 				$title 		= $link ? esc_attr(stripslashes($link['title'])) : '';
 
-				wppa_do_the_widget_thumb('lasten', $image, $album, $display, $link, $title, $imgurl, $imgstyle_a, $imgevents);
+				$widget_content .= wppa_get_the_widget_thumb('lasten', $image, $album, $display, $link, $title, $imgurl, $imgstyle_a, $imgevents);
 				
 				$widget_content .= "\n\t".'<div style="font-size:'.$wppa_opt['wppa_fontsize_widget_thumb'].'px; line-height:'.$lineheight.'px;">';
 				if ( $timesince == 'yes' ) {

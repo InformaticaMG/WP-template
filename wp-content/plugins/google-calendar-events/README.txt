@@ -1,8 +1,8 @@
 === Google Calendar Events ===
 Contributors: pderksen, nickyoung87, rosshanney
 Tags: google calendar, google, calendar, events, gcal
-Requires at least: 3.7.4
-Tested up to: 4.0
+Requires at least: 3.8.5
+Tested up to: 4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -42,6 +42,8 @@ This plugin was originally created by [Ross Hanney](http://www.rhanney.co.uk), a
 * Norwegian - Provided by Tore Hjartland of [aliom.no](http://www.aliom.no/).
 * Polish - Provided by Michał Pasternak of [iplweb.pl](http://iplweb.pl/).
 * Lithuanian - Provided by Andrius Mazeika of [mazeika.info](http://mazeika.info/).
+* Dutch - Provided by Henri van Werkhoven.
+* Catalan - Provided by Toni Ginard & Monica Grau of [agora.xtec.cat](http://agora.xtec.cat/).
 
 == Installation ==
 
@@ -86,6 +88,97 @@ There are three ways to install this plugin.
 1. Event display builder editor
 
 == Changelog ==
+
+= 2.2.2.1 - March 17, 2015 =
+
+* The option to always enqueue scripts & styles should now be enabled by default for new installs and upgrades.
+
+= 2.2.2 - March 15, 2015 =
+
+* Added option to always enqueue scripts and styles on every post and page.
+* Added custom date range grid option to display modes.
+* Added option to disable the plugin CSS file.
+* Fixed bug with list intervals.
+* Fixed bug with event list showing past events.
+* Minor public JavaScript performance updates.
+
+= 2.2.1 - February 28, 2015 =
+
+* Enqueue scripts & styles on all posts & pages temporarily until better detection can be put in place.
+* Fixed GCal ID encoding in feed settings.
+* Updated Italian translation.
+* Updated French translation.
+
+= 2.2.0 - February 25, 2015 =
+
+* Added custom date range options.
+* Added option to hide tooltips on grid display.
+* Added additional save button at the bottom of the feed settings.
+* Performance updates to script enqueues.
+* Updated Catalan translation files.
+* Updated list output logic.
+* Fixed bug with multi-day events sometimes not showing up in list view.
+* Fixed bug with calendar ID field not getting encoded.
+* Fixed bug with tooltips scrolling on mobile.
+* Fixed bug with Google Hangout event links.
+* Fixed bug with widget settings not being unique.
+* Widget UI enhancements.
+* Feed settings UI enhancements.
+* Error messaging updates.
+* Security improvements.
+
+= 2.1.7 =
+
+* Restructured next and back paging navigation script.
+* Updated Italian translation files.
+
+= 2.1.6.1 =
+
+* More tooltip (qTip2) effects & styling.
+
+= 2.1.6 =
+
+* Fixed bug with tooltip (qTip2) in some cases by now including it's imagesLoaded script.
+* Tooltip style improvements.
+* Tooltip minified JS map file now included.
+* Updated French translation.
+* Updated Lithuanian translation.
+* Fix bug with grouped-list multi-day event title.
+* Fix bug when saving a bulk edit.
+
+= 2.1.5 =
+
+* Updated jQuery tooltip library to [qTip2](http://qtip2.com/). Previously using unmaintained original qTip library.
+
+= 2.1.4 =
+
+* Reverted CSS enqueue change.
+* Added Catalan translation - Provided by Toni Ginard & Monica Grau of [agora.xtec.cat](http://agora.xtec.cat/).
+* Updated AJAX security code.
+* Fixed bug with calendar ID field not trimming extra spaces.
+* Updated French translation - Pull Request by @Jojaba
+* Tested up to WordPress 4.1.
+
+= 2.1.3 =
+
+* Only load plugin scripts and stylesheets when the viewable page is rendering output from this plugin.
+* Fixed bugs with simple display options.
+* Added better error checking and output options to help in debugging GCal feeds.
+* Added Dutch translation - Provided by Henri van Werkhoven.
+
+= 2.1.2 =
+
+* Fixed bug with quick edit clearing out feed settings.
+* Fix bug with pagination creating extra DOM elements.
+* Localization string fixes - Pull Request by @Jojaba
+* Added HTML to group events of the same day semantically - Pull Request by @martinburchell
+* Fixed bug with [cal-id] event builder code.
+* Add in post data resets.
+
+= 2.1.1 =
+
+* Fixed bug with all day events not displaying.
+* Added missing timezone parameter to internal query.
 
 = 2.1.0 = 
 

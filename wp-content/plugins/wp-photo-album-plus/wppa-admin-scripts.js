@@ -1,7 +1,7 @@
 /* admin-scripts.js */
 /* Package: wp-photo-album-plus
 /*
-/* Version 5.3.7
+/* Version 5.5.2
 /* Various js routines used in admin pages		
 */
 
@@ -73,7 +73,7 @@ function wppaInitSettings() {
 //	wppaCheckKeepSource();
 	wppaCheckCoverType();
 	wppaCheckNewpag();
-	wppaCheckIndexSearch();
+//	wppaCheckIndexSearch();
 	wppaCheckCDN();
 	wppaCheckAutoPage();
 	wppaCheckGps();
@@ -97,6 +97,64 @@ function wppaInitSettings() {
 			}
 		}
 		wppaToggleSubTable(tab[table-1],'Z');
+	}
+}
+
+// Quick sel on settings page will be released at version 5.5.0
+function wppaQuickSel() {
+	var tab = new Array('O','I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII');
+	var sub = new Array('A','B','C','D','E','F','G','H','I','J','K','Z');
+	var tag;
+	var _cls;
+	
+	// Open Tables and subtables
+	for ( table = 1; table < 13; table++ ) {
+		if ( table < 13 ) {
+			wppaShowTable(table);	// was Show Refreshes cookie, so it 'never' forgets
+		}
+		else {
+			wppaHideTable(table);	// Refreshes cookie, so it 'never' forgets
+		}
+		wppa_tablecookieoff(table);
+		for (subtab=0; subtab<12; subtab++) {
+			cookie = wppa_getCookie('table_'+tab[table-1]+'-'+sub[subtab]);
+			if (cookie == 'on') {
+				wppaToggleSubTable(tab[table-1],sub[subtab]);
+			}
+			var selection = jQuery('.wppa-'+tab[table-1]+'-'+sub[subtab]);
+			if ( selection.length > 0 ) {
+				selection.removeClass('wppa-none');
+				// For compatibility we fake all subtables are closed, because we close almost everything later on
+				wppaSubTabOn[tab[table-1]+'-'+sub[subtab]] = false;//true;
+				wppa_tablecookieoff(tab[table-1]+'-'+sub[subtab]);
+			}
+		}
+//		wppaToggleSubTable('X','Z');
+//		wppaToggleSubTable('XI','Z');
+//		wppaToggleSubTable('VII','A');
+	}
+	
+//	jQuery( '.subtableheader' ).css('display')=='none');
+	
+	// Find tags
+	tag1 = jQuery("#wppa-quick-selbox-1").val();
+	tag2 = jQuery("#wppa-quick-selbox-2").val();
+	
+	// Both empty? close all (sub)tables
+	if ( tag1 == '-' && tag2 == '-' ) {
+		jQuery( '._wppatag-' ).addClass( 'wppa-none' );
+		for ( table = 1; table < 13; table++ ) {
+			wppaHideTable( table );
+		}
+	}
+	// Hide not wanted items
+	else {
+		if ( tag1 != '-' ) {
+			jQuery( '._wppatag-'+tag1 ).addClass('wppa-none');
+		}
+		if ( tag2 != '-' ) {
+			jQuery( '._wppatag-'+tag2 ).addClass('wppa-none');
+		}
 	}
 }
 
@@ -125,6 +183,7 @@ function wppaToggleSubTable(table,subtable) {
 		wppaSubTabOn[table+'-'+subtable] = true;
 		wppa_tablecookieon(table+'-'+subtable);
 	}
+//alert("table+'-'+subtable = "+table+'-'+subtable+" wppaSubTabOn[table+'-'+subtable] = "+wppaSubTabOn[table+'-'+subtable]);
 }
 
 function wppaHideTable(table) {
@@ -144,6 +203,16 @@ function wppaShowTable(table) {
 var _wppaRefreshAfter = false;
 function wppaRefreshAfter() {
 	_wppaRefreshAfter = true;
+}
+
+function wppaFollow( id, clas ) {
+
+	if ( jQuery('#'+id).attr('checked') ) {
+		jQuery('.'+clas).css('display', '');
+	}
+	else {
+		jQuery('.'+clas).css('display', 'none');
+	}
 }
 
 function wppaCheckFotomoto() {
@@ -229,6 +298,7 @@ function wppaCheckWidgetSubtitle() {
 
 /* Enables or disables the setting of full size horizontal alignment. Only when fullsize is unequal to column width */
 /* also no hor align if vertical align is ---default-- */
+/* Also show/hide initial colwidth for resp themem ( Table I-A1.1 ) */
 function wppaCheckFullHalign() {
 	var fs = document.getElementById('wppa_fullsize').value;
 	var cs = document.getElementById('wppa_colwidth').value;
@@ -238,6 +308,12 @@ function wppaCheckFullHalign() {
 	}
 	else {
 		jQuery('.wppa_ha').css('display', 'none');
+	}
+	if ( cs == 'auto' ) {
+		jQuery('.wppa_init_resp_width').css('display', '');
+	}
+	else {
+		jQuery('.wppa_init_resp_width').css('display', 'none');
 	}
 }
 
@@ -270,15 +346,16 @@ function wppaCheckThumbType() {
 		jQuery('.tt_always').css('display', '');
 		wppaCheckUseThumbOpacity();
 	}
-	if (ttype == 'ascovers') {
+	if (ttype == 'ascovers'||ttype == 'ascovers-mcr') {
 		jQuery('.tt_normal').css('display', 'none');
 		jQuery('.tt_ascovers').css('display', '');
 		jQuery('.tt_always').css('display', '');
 	}
-	if (ttype == 'none') {
+	if (ttype == 'masonry') {
 		jQuery('.tt_normal').css('display', 'none');
 		jQuery('.tt_ascovers').css('display', 'none');
-		jQuery('.tt_always').css('display', 'none');
+		jQuery('.tt_always').css('display', '');
+		jQuery('.tt_masonry').css('display', '');
 	}
 }
 
@@ -408,7 +485,7 @@ function wppaCheckCoverType() {
 	var Type = document.getElementById('wppa_cover_type').value;
 	var Pos = document.getElementById('wppa_coverphoto_pos').value;
 	
-	if ( Type == 'imagefactory' ) {
+	if ( Type == 'imagefactory' || Type == 'imagefactory-mcr' ) {
 		jQuery('.wppa_imgfact_').css('display', '');
 /*		if ( Pos == 'left' || Pos == 'right' )
 			alert('To avoid layout problems: please set Cover photo position ( Table IV-D3 ) to \'top\' or \'bottom\'!');
@@ -550,7 +627,7 @@ function wppaCheckCommentLink() {
 
 function wppaCheckSlideOnlyLink() {
 	var lvalue = document.getElementById('wppa_slideonly_widget_linktype').value;
-	if (lvalue == 'none' || lvalue == 'file' || lvalue == 'widget') {
+	if (lvalue == 'none' || lvalue == 'file' || lvalue == 'widget' || lvalue == 'lightbox' || lvalue == 'fullpopup') {
 		jQuery('.wppa_solp').css('visibility', 'hidden');
 	}
 	else {
@@ -725,10 +802,10 @@ function wppaCheckGravatar() {
 
 function wppaCheckUserUpload() {
 	if (document.getElementById('wppa_user_upload_on').checked) {
-		jQuery('.wppa_copyr').css('display', '');
+		jQuery('.wppa_feup').css('display', '');
 	}
 	else {
-		jQuery('.wppa_copyr').css('display', 'none');
+		jQuery('.wppa_feup').css('display', 'none');
 	}
 }
 
@@ -743,15 +820,16 @@ function wppaCheckSplitNamedesc() {
 	}
 }
 
+/*
 function wppaCheckIndexSearch() {
-	if (document.getElementById('wppa_indexed_search').checked) {
+//	if (document.getElementById('wppa_indexed_search').checked) {
 		jQuery('.index_search').css('display', '');
-	}
-	else {
-		jQuery('.index_search').css('display', 'none');
-	}
+//	}
+//	else {
+//		jQuery('.index_search').css('display', 'none');
+//	}
 }
-
+*/
 function wppa_tablecookieon(i) {
 	wppa_setCookie('table_'+i, 'on', '365');
 }
@@ -808,6 +886,7 @@ function checkAll(name, clas) {
 	}
 }
 
+/*
 function checkOrg(name, clas) {
 	var elm = document.getElementById(name);
 	if (elm) {
@@ -847,10 +926,19 @@ function checkOrg(name, clas) {
 					jQuery('#'+checkboxid).prop('checked', '');
 				}
 			}
+			else {	// NOT orig
+				if ( elm.checked ) {
+					jQuery('#td-'+checkboxid).css('visibility', 'hidden');
+				}
+				else {
+					jQuery('#td-'+checkboxid).css('visibility', 'visible');
+				}
+			}
 			idx++;
 		}
 	}
 }
+*/
 
 function impUpd(elm, id) {
 	if ( elm.checked ) {
@@ -1087,6 +1175,17 @@ function _wppaAjaxUpdatePhoto(photo, actionslug, value, refresh) {
 				document.getElementById('photostatus-'+photo).innerHTML = '<span style="color:red;" >Comm error '+xmlhttp.status+': '+xmlhttp.statusText+'</span>';
 			}			
 		}
+	}
+}
+
+function wppaChangeScheduleAlbum(album, elem) {
+	var onoff = jQuery(elem).prop('checked');
+	if ( onoff ) {
+		jQuery('.wppa-datetime-'+album).css('display', 'inline');
+	}
+	else {
+		jQuery('.wppa-datetime-'+album).css('display', 'none');
+		wppaAjaxUpdateAlbum(album, 'scheduledtm', document.getElementById('wppa-dummy') );
 	}
 }
 
@@ -1378,7 +1477,7 @@ function wppaMaintenanceProc(slug, intern) {
 				}
 				
 				// Check for recoverable error
-				if ( resparr[0] != '' ) {
+				if ( resparr[0].length > 10 ) {	// Was: resparr[0] != ''
 					alert('An error occurred:\n'+resparr[0]);
 					error = true;
 				}
@@ -1591,7 +1690,7 @@ function wppaPhotoStatusChange(id) {
 	jQuery('#psdesc-'+id).css({display: 'none'});
 	elm = document.getElementById('status-'+id);
 	
-	if (elm.value=='pending') {
+	if ( elm.value == 'pending' || elm.value == 'scheduled' ) {
 		jQuery('#photoitem-'+id).css({backgroundColor: '#ffebe8', borderColor: '#cc0000'});
 	}
 	if (elm.value=='publish') {
@@ -1619,6 +1718,13 @@ function wppaPhotoStatusChange(id) {
 	}
 	if (elm.value=='bronze') {
 		jQuery('#photoitem-'+id).css({backgroundColor:'#ddddbb', borderColor:'#ccccaa'}); 
+	}
+		
+	if ( elm.value == 'scheduled' ) {
+		jQuery( '.wppa-datetime-'+id ).css('display', ''); //prop( 'disabled', false );
+	}
+	else {
+		jQuery( '.wppa-datetime-'+id ).css('display', 'none'); //prop( 'disabled', true );
 	}
 }
 
@@ -1685,5 +1791,106 @@ function wppaFeAjaxLog(key) {
 			wppaFeCount--;
 			jQuery('#wppa-fe-count').html(wppaFeCount);
 		}
+	}
+}
+
+function wppaArrayToEnum( arr, sep ) {
+	
+	// Step 1. Sort Ascending Numeric
+	temp = arr.sort(function(a, b){return a-b});
+	
+	// Init	
+	var result = '';
+	var lastitem = -1;
+	var previtemp = -2;
+	var lastitemp = 0;
+	var isrange = false;
+	var i = 0;
+	var item;
+	while ( i < arr.length ) {
+		item = arr[i].valueOf();
+		if ( item != 0 ) {
+			lastitemp = lastitem;
+			lastitemp++;
+			if ( item == lastitemp ) {
+				isrange = true;
+			}
+			else {
+				if ( isrange ) {	// Close range
+					if ( lastitem == previtemp ) {	// Range is x . (x+1)
+						result += sep + lastitem + sep + item;
+					}
+					else {
+						result += sep + sep + lastitem + sep + item;
+					}
+					isrange = false;
+				}
+				else {				// Add single item
+					result += sep + item;
+				}
+			}
+			if ( ! isrange ) {
+				previtemp = item;
+				previtemp++;
+			}
+			lastitem = item;
+		}
+		i++;
+	}
+	if ( isrange ) {	// Don't forget the last if it ends in a range
+		result += '..' + lastitem;
+	}
+	
+	// ltrim .
+	while ( result.substr(0,1) == '.') result = result.substr(1);
+
+	return result;
+}
+
+function wppaGetSelEnumToId( cls, id ) {
+	p = jQuery( '.'+cls );
+	var pararr = [];
+	i = 0;
+	j = 0;
+	while ( i < p.length ) {
+		if ( p[i].selected ) {
+			pararr[j] = p[i].value;
+			j++;
+		}
+		i++;
+	}
+	jQuery( '#'+id ).attr( 'value', wppaArrayToEnum( pararr, '.' ) );
+}
+
+function wppaGetSelectionEnumByClass( clas ) {
+var p;
+var parr = [];
+var i = 0;
+var j = 0;
+var result = '';
+
+	p = jQuery( clas );
+	i = 0;
+	j = 0;
+	while ( i < p.length ) {
+		if ( p[i].selected ) {
+			parr[j] = p[i].value;
+			j++;
+		}
+		i++;
+	}
+	result = wppaArrayToEnum( parr, '.' );
+	
+	return result;
+}
+
+function wppaEditSearch( url, id ) {
+	
+	var ss = jQuery( '#'+id ).val();
+	if ( ss.length == 0 ) {
+		alert('Please enter searchstring');
+	}
+	else {
+		document.location.href = url + '&wppa-searchstring=' + ss;
 	}
 }

@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * display thumbnail photos
-* Version 5.3.6
+* Version 5.4.0
 */
 
 class ThumbnailWidget extends WP_Widget {
@@ -22,6 +22,7 @@ class ThumbnailWidget extends WP_Widget {
 		global $wppa;
 
 		$wppa['in_widget'] = 'tn';
+		$wppa['mocc']++;
 		
         extract( $args );
 		
@@ -59,10 +60,10 @@ class ThumbnailWidget extends WP_Widget {
 		}
 		
 		if ( $album ) {
-			$thumbs = $wpdb->get_results($wpdb->prepare( "SELECT * FROM `".WPPA_PHOTOS."` WHERE `status` <> 'pending' AND `album` = %s ".$sortby." LIMIT %d", $album, $max ), 'ARRAY_A' );
+			$thumbs = $wpdb->get_results($wpdb->prepare( "SELECT * FROM `".WPPA_PHOTOS."` WHERE `status` <> 'pending' AND `status` <> 'scheduled' AND `album` = %s ".$sortby." LIMIT %d", $album, $max ), 'ARRAY_A' );
 		}
 		else {
-			$thumbs = $wpdb->get_results($wpdb->prepare( "SELECT * FROM `".WPPA_PHOTOS."` WHERE `status` <> 'pending' ".$sortby." LIMIT %d", $max ), 'ARRAY_A' );
+			$thumbs = $wpdb->get_results($wpdb->prepare( "SELECT * FROM `".WPPA_PHOTOS."` WHERE `status` <> 'pending' AND `status` <> 'scheduled'".$sortby." LIMIT %d", $max ), 'ARRAY_A' );
 		}
 
 		global $widget_content;
@@ -92,7 +93,7 @@ class ThumbnailWidget extends WP_Widget {
 			if ($image) {
 				$link       = wppa_get_imglnk_a('tnwidget', $image['id']);
 				$file       = wppa_get_thumb_path($image['id']);
-				$imgstyle_a = wppa_get_imgstyle_a($file, $maxw, 'center', 'twthumb');
+				$imgstyle_a = wppa_get_imgstyle_a( $image['id'], $file, $maxw, 'center', 'twthumb');
 				$imgurl 	= wppa_get_thumb_url( $image['id'], '', $imgstyle_a['width'], $imgstyle_a['height'] );
 				$imgevents 	= wppa_get_imgevents('thumb', $image['id'], true);
 				$title 		= $link ? esc_attr(stripslashes($link['title'])) : '';

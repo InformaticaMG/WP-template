@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * Contains low-level wpdb routines that update records
-* Version 5.3.5
+* Version 5.4.15
 *
 */
 
@@ -13,14 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) die( "Can't load this file directly" );
 function wppa_update_album( $args ) {
 global $wpdb;
 global $wppa_opt;
-global $album;
 
 	if ( ! is_array( $args ) ) return false;
 	if ( ! $args['id'] ) return false;
 	if ( ! wppa_cache_album( $args['id'] ) ) return false;
 	$id = $args['id'];
 	
-	foreach ( array_keys($args) as $itemname ) {
+	foreach ( array_keys( $args ) as $itemname ) {
 		$itemvalue = $args[$itemname];
 		$doit = false;
 		
@@ -43,6 +42,15 @@ global $album;
 				}
 				$doit = true;
 				break;
+			case 'scheduledtm':
+				$doit = true;
+				break;
+			case 'main_photo':
+				if ( wppa_is_int( $itemvalue ) ) {
+					$doit = true;
+				}
+				break;
+				
 			default:
 				wppa_log( 'Error', 'Not implemented in wppa_update_album(): '.$itemname );
 				return false;
@@ -50,7 +58,7 @@ global $album;
 		
 		if ( $doit ) {
 			if ( $wpdb->query( $wpdb->prepare( "UPDATE `".WPPA_ALBUMS."` SET `".$itemname."` = %s WHERE `id` = %s LIMIT 1", $itemvalue, $id ) ) ) {
-				$album[$itemname] = $itemvalue; // Update cache
+				wppa_cache_album( 'invalidate' );
 			}
 		}
 	}
@@ -72,4 +80,71 @@ global $album;
 		`views`,
 		`cats`
 */
+}
+
+// Photo
+function wppa_update_photo( $args ) {
+global $wpdb;
+global $wppa_opt;
+global $thumb;
+
+	if ( ! is_array( $args ) ) return false;
+	if ( ! $args['id'] ) return false;
+	if ( ! wppa_cache_thumb( $args['id'] ) ) return false;
+	$id = $args['id'];
+	
+	foreach ( array_keys( $args ) as $itemname ) {
+		$itemvalue = $args[$itemname];
+		$doit = false;
+		
+		// Sanitize input
+		switch( $itemname ) {
+			case 'id':
+				break;
+			case 'name':
+				$itemvalue = wppa_strip_tags( $itemvalue, 'all' );
+				$doit = true;
+				break;
+			case 'description':
+				$itemvalue = balanceTags( $itemvalue, true );
+				$itemvalue = wppa_strip_tags( $itemvalue, 'script&style' );
+				$doit = true;
+				break;
+			case 'timestamp':
+				if ( ! $itemvalue ) {
+					$itemvalue = time();
+				}
+				$doit = true;
+				break;
+			case 'scheduledtm':
+			case 'exifdtm':
+				$doit = true;
+				break;
+			case 'status':
+				$doit = true;
+				break;
+			case 'tags':
+				$itemvalue = wppa_sanitize_tags( $itemvalue );
+				$doit = true;
+				break;
+			case 'thumbx':
+			case 'thumby':
+			case 'photox':
+			case 'photoy':
+				$itemvalue = intval( $itemvalue );
+				$doit = true;
+				break;
+				
+			default:
+				wppa_log( 'Error', 'Not implemented in wppa_update_photo(): '.$itemname );
+				return false;
+		}
+		
+		if ( $doit ) {
+			if ( $wpdb->query( $wpdb->prepare( "UPDATE `".WPPA_PHOTOS."` SET `".$itemname."` = %s WHERE `id` = %s LIMIT 1", $itemvalue, $id ) ) ) {
+				wppa_cache_photo( 'invalidate', $id );
+			}
+		}
+	}
+	return true;
 }

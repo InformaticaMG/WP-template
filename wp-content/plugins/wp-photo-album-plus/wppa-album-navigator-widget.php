@@ -1,9 +1,9 @@
 <?php
-/* wppa-album-widget.php
+/* wppa-album-navigator-widget.php
 * Package: wp-photo-album-plus
 *
-* display thumbnail photos
-* Version 5.2.18
+* display album names linking to content
+* Version 5.4.25
 */
 
 class AlbumNavigatorWidget extends WP_Widget {
@@ -23,7 +23,7 @@ class AlbumNavigatorWidget extends WP_Widget {
 		global $thumb;
 
 		$wppa['in_widget'] = 'albnav';
-		$wppa['master_occur'] ++;
+		$wppa['mocc'] ++;
 	
         extract( $args );
 		
@@ -89,7 +89,6 @@ class AlbumNavigatorWidget extends WP_Widget {
 		<p><label for="<?php echo $this->get_field_id('parent'); ?>"><?php _e('Album selection or Parent album:', 'wppa'); ?></label> 
 			<select class="widefat" id="<?php echo $this->get_field_id('parent'); ?>" name="<?php echo $this->get_field_name('parent'); ?>" >
 
-				<?php //echo wppa_album_select('', $parent, true, '', '', true); ?>
 				<option value="all" <?php if ($parent == 'all') echo 'selected="selected"' ?>><?php _e('--- all albums ---', 'wppa') ?></option>
 				<option value="0"  <?php if ($parent == '0')  echo 'selected="selected"' ?>><?php _e('--- all generic albums ---', 'wppa') ?></option>
 				<option value="-1" <?php if ($parent == '-1') echo 'selected="selected"' ?>><?php _e('--- all separate albums ---', 'wppa') ?></option>
@@ -123,7 +122,6 @@ class AlbumNavigatorWidget extends WP_Widget {
 	function do_album_navigator( $parent, $page, $skip, $propclass ) {
 	global $wppa_opt;
 	global $wpdb;
-	global $album;
 	static $level;
 	static $ca;
 
@@ -132,18 +130,23 @@ class AlbumNavigatorWidget extends WP_Widget {
 			if ( isset( $_REQUEST['wppa-album'] ) ) $ca = $_REQUEST['wppa-album'];
 			elseif ( isset( $_REQUEST['album'] ) ) $ca = $_REQUEST['album'];
 			else $ca = '0';
+			$ca = wppa_force_numeric_else( $ca, '0' );
 		}
 		else {
 			$level++;
 		}
 		
+		$slide = wppa_opt( 'wppa_album_navigator_widget_linktype' ) == 'slide' ? '&amp;wppa-slide=1' : '';
+		
 		$w = $this->get_widget_id();
 		$p = $parent;
 		$result = '';
 		$albums = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM `".WPPA_ALBUMS."` WHERE `a_parent` = %s ".wppa_get_album_order( max( '0', $parent ) ), $parent ), ARRAY_A );
+		wppa_dbg_q( 'Q-WidANav' );
+		wppa_cache_album( 'add', $albums );
 		if ( $albums ) {
 			$result .= '<ul>';
-			foreach ( $albums as $album ) {
+			foreach ( $albums as $album ) {	
 				$a = $album['id'];
 				$treecount = wppa_treecount_a( $a );
 				if ( $treecount['albums'] || $treecount['photos'] > $wppa_opt['wppa_min_thumbs'] || $skip == 'no' ) {
@@ -155,10 +158,10 @@ class AlbumNavigatorWidget extends WP_Widget {
 						else $result .= '
 							<div style="width:12px;float:left;" >&nbsp;'.( $a == $ca ? '&raquo;' : '').'</div>';
 						$result .= '
-							<a href="'.wppa_get_permalink( $page ).'&amp;wppa-album='.$a.'&amp;wppa-cover=0&amp;wppa-occur=1">'.wppa_get_album_name( $a ).'</a>
+							<a href="'.wppa_get_permalink( $page ).'&amp;wppa-album='.$a.'&amp;wppa-cover=0&amp;wppa-occur=1'.$slide.'">'.wppa_get_album_name( $a ).'</a>
 						</li>';
 					$newpropclass = $propclass . ' p-'.$w.'-'.$p;
-					$result .= $this->do_album_navigator( $a, $page, $skip, $newpropclass );
+					$result .= '<li class="anw-'.$w.'-'.$p.$propclass.'" style="list-style:none;" >' . $this->do_album_navigator( $a, $page, $skip, $newpropclass ) . '</li>';
 				}
 			}
 			$result .= '</ul>';
@@ -173,7 +176,7 @@ class AlbumNavigatorWidget extends WP_Widget {
 			}
 		}
 		$level--;
-		return $result;
+		return str_replace( '<ul></ul>', '', $result );
 	}
 	
 } // class AlbumNavigatorWidget

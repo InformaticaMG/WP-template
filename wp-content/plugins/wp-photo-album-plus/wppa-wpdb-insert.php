@@ -3,7 +3,7 @@
 * Package: wp-photo-album-plus
 *
 * Contains low-level wpdb routines that add new records
-* Version 5.3.5
+* Version 5.4.12
 *
 */
 
@@ -14,7 +14,7 @@ function wppa_create_session_entry( $args ) {
 global $wpdb;
 
 	$args = wp_parse_args( (array) $args, array (
-					'id' 				=> '0',
+		/*			'id' 				=> '0',	*/ //		session is now auto increment
 					'session' 			=> wppa_get_session_id(),
 					'timestamp' 		=> time(),
 					'user'				=> wppa_get_user(),
@@ -23,10 +23,8 @@ global $wpdb;
 					'data'				=> false,
 					'count' 			=> '1'
 					) );
-					
-	if ( ! wppa_is_id_free( WPPA_SESSION, $args['id'] ) ) $args['id'] = wppa_nextkey( WPPA_SESSION );
 	
-	$query = $wpdb->prepare("INSERT INTO `" . WPPA_SESSION ."` 	(	`id`,
+	$query = $wpdb->prepare("INSERT INTO `" . WPPA_SESSION ."` 	(	
 																	`session`,
 																	`timestamp`,
 																	`user`,
@@ -35,8 +33,8 @@ global $wpdb;
 																	`data`,
 																	`count`
 																)
-														VALUES ( %s, %s, %s, %s, %s, %s, %s, %s )",
-																$args['id'],
+														VALUES ( %s, %s, %s, %s, %s, %s, %s )",
+															
 																$args['session'],
 																$args['timestamp'],
 																$args['user'],
@@ -45,10 +43,9 @@ global $wpdb;
 																$args['data'],
 																$args['count']
 														);
-	$iret = $wpdb->query($query);
+	$iret = @ $wpdb->query($query);
 	
-	if ( $iret ) return $args['id'];
-	else return false;
+	return $iret;
 }	
 														
 // Index
@@ -251,9 +248,14 @@ global $wpdb;
 					'location' 			=> '',
 					'views' 			=> '0',
 					'page_id' 			=> '0',
-					'exifdtm' 			=> ''	
+					'exifdtm' 			=> '',
+					'videox' 			=> '0',
+					'videoy' 			=> '0',
+					'scheduledtm' 		=> $args['album'] ? $wpdb->get_var( $wpdb->prepare( "SELECT `scheduledtm` FROM `".WPPA_ALBUMS."` WHERE `id` = %s", $args['album'] ) ) : ''
 					) );
-					
+
+	if ( $args['scheduledtm'] ) $args['status'] = 'scheduled';
+	
 	if ( ! wppa_is_id_free( WPPA_PHOTOS, $args['id'] ) ) $args['id'] = wppa_nextkey( WPPA_PHOTOS );
 	
 	$query = $wpdb->prepare("INSERT INTO `" . WPPA_PHOTOS . "` ( 	`id`, 
@@ -277,14 +279,17 @@ global $wpdb;
 																	`location`,
 																	`views`,
 																	`page_id`,
-																	`exifdtm`
+																	`exifdtm`,
+																	`videox`,
+																	`videoy`,
+																	`scheduledtm`
 																)
-														VALUES ( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s )",
+														VALUES ( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s )",
 																$args['id'],
 																$args['album'],
 																$args['ext'],
-																$args['name'], 
-																$args['description'], 
+																trim( $args['name'] ), 
+																trim( $args['description'] ), 
 																$args['p_order'],
 																$args['mean_rating'],
 																$args['linkurl'],
@@ -296,12 +301,15 @@ global $wpdb;
 																$args['rating_count'],
 																$args['tags'],
 																$args['alt'],
-																$args['filename'],
+																wppa_sanitize_file_name( $args['filename'] ),	// Security fix
 																$args['modified'],
 																$args['location'],
 																$args['views'],
 																$args['page_id'],
-																$args['exifdtm']
+																$args['exifdtm'],
+																$args['videox'],
+																$args['videoy'],
+																$args['scheduledtm']
 														);
 	$iret = $wpdb->query($query);
 	
@@ -312,7 +320,6 @@ global $wpdb;
 // Album
 function wppa_create_album_entry( $args ) {
 global $wpdb;
-global $wppa_opt;
 
 	$args = wp_parse_args( (array) $args, array ( 
 					'id' 				=> '0',
@@ -320,19 +327,20 @@ global $wppa_opt;
 					'description' 		=> '',
 					'a_order' 			=> '0',
 					'main_photo' 		=> '0',
-					'a_parent' 			=> $wppa_opt['wppa_default_parent'],
+					'a_parent' 			=> wppa_opt( 'wppa_default_parent' ),
 					'p_order_by' 		=> '0',
 					'cover_linktype' 	=> 'content',
 					'cover_linkpage' 	=> '0',
 					'owner' 			=> wppa_get_user(),
 					'timestamp' 		=> time(),
-					'upload_limit' 		=> $wppa_opt['wppa_upload_limit_count'].'/'.$wppa_opt['wppa_upload_limit_time'],
+					'upload_limit' 		=> wppa_opt( 'wppa_upload_limit_count' ).'/'.wppa_opt( 'wppa_upload_limit_time' ),
 					'alt_thumbsize' 	=> '0',
 					'default_tags' 		=> '',
 					'cover_type' 		=> '',
 					'suba_order_by' 	=> '',
 					'views' 			=> '0',
-					'cats'				=> ''
+					'cats'				=> '',
+					'scheduledtm' 		=> ''
 					) );
 					
 	if ( ! wppa_is_id_free( WPPA_ALBUMS, $args['id'] ) ) $args['id'] = wppa_nextkey( WPPA_ALBUMS );
@@ -354,12 +362,13 @@ global $wppa_opt;
 																	`cover_type`, 
 																	`suba_order_by`,
 																	`views`,
-																	`cats`
+																	`cats`,
+																	`scheduledtm`
 																	) 
-														VALUES ( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s )", 
+														VALUES ( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s )", 
 																$args['id'], 
-																$args['name'],
-																$args['description'],
+																trim( $args['name'] ),
+																trim( $args['description'] ),
 																$args['a_order'],
 																$args['main_photo'],
 																$args['a_parent'],
@@ -374,7 +383,8 @@ global $wppa_opt;
 																$args['cover_type'],
 																$args['suba_order_by'],
 																$args['views'],
-																$args['cats']
+																$args['cats'],
+																$args['scheduledtm']
 														);
 	$iret = $wpdb->query($query);
 	

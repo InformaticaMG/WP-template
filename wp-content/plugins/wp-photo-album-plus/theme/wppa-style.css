@@ -8,7 +8,7 @@
 /*
 /* You may always look into a newer version of this file to see what new classes and id's come with an upgrade
 /*
-/* This is version 5.2.21
+/* This is version 5.5.3
 */
 
 .wppa-container, .wppa-cover-box, .wppa-thumb-area {
@@ -136,6 +136,12 @@
 	text-align: center;
 }
 
+.wppa-masonry {
+	margin:0 !important;
+	padding:0 !important;
+	border:none !important;
+}
+
 /* The popup small image, here is still a problem with IE6 */
 .wppa-popup-frame {
 	position: absolute;
@@ -153,7 +159,6 @@
 	font-size: 10px;
 	line-height: 12px;
 	text-align: center;
-/*	z-index: 1000; */
 }
 
 /* Full size photo */
@@ -172,6 +177,7 @@
 	position: relative;
 	width: 100%;
 	padding: 0 !important;
+	clear: both;
 }
 
 .wideentry .slide-frame {
@@ -412,4 +418,33 @@ float:left !important;
 }
 .FotomotoClear {
 display:none;
+}
+
+/* Ajax front upload */
+.wppa-progress {
+	position:relative; 
+	width:100%; 
+	height: 18px;
+	border: 1px solid; 
+	padding: 1px; border-radius: 3px; 
+	text-align: center;
+}
+.wppa-bar { 
+	background-color: #7f7; 
+	width:0%; 
+	height:18px; 
+	border-radius: 3px; 
+	margin: 0;
+}
+.wppa-percent { 
+	position:relative; 
+	display:inline-block; 
+	top:-20px; 
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0;
+/*	left:48%; */
+}
+.wppa-message {
+	clear: both;
 }
